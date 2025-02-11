@@ -1,5 +1,6 @@
 import React from "react";
 import { type SanityDocument } from "next-sanity";
+import Link from "next/link";
 
 import { client } from "@/sanity/client";
 import { options } from "../lib/sanityOptions";
@@ -14,6 +15,8 @@ interface Industry extends SanityDocument {
 interface CategoryInterface {
 	en: string;
 	fr: string;
+	enRoute: string;
+	frRoute: string;
 	isDropdown: boolean;
 	dropdownItems?: Array<DropdownItems>;
 }
@@ -21,20 +24,27 @@ interface CategoryInterface {
 interface DropdownItems {
 	en: string;
 	fr: string;
+	enRoute: string;
+	frRoute: string;
 }
 
 const renderDropdownCategory = (category: CategoryInterface, index: Number) => {
 	// Change this to use currently set language from context
+
 	return (
 		<div key={`category-${index}`}>
-			{category?.["en"]}
+			<Link href={`/${category?.enRoute}`}>{category?.["en"]}</Link>
 			<span>v</span>
 		</div>
 	);
 };
 
 const renderCategory = (category: CategoryInterface, index: Number) => {
-	return <div key={`category-${index}`}>{category?.["en"]}</div>;
+	return (
+		<div key={`category-${index}`}>
+			<Link href={`/${category?.enRoute}`}>{category?.["en"]}</Link>
+		</div>
+	);
 };
 
 const renderCategoryRouter = (category: CategoryInterface, index: Number) => {

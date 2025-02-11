@@ -32,6 +32,18 @@ export const navigation = defineType({
               validation: (rule) => rule.required(),
             }),
             defineField({
+              name: 'enRoute',
+              title: 'English Route',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'frRoute',
+              title: 'French Route',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
               name: 'isDropdown',
               title: 'Is Dropdown?',
               type: 'boolean',
@@ -55,6 +67,18 @@ export const navigation = defineType({
                     defineField({
                       name: 'fr',
                       title: 'French',
+                      type: 'string',
+                      validation: (rule) => rule.required(),
+                    }),
+                    defineField({
+                      name: 'enRoute',
+                      title: 'English Route',
+                      type: 'string',
+                      validation: (rule) => rule.required(),
+                    }),
+                    defineField({
+                      name: 'frRoute',
+                      title: 'French Route',
                       type: 'string',
                       validation: (rule) => rule.required(),
                     }),

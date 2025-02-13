@@ -1,14 +1,32 @@
-"use client";
 // app/[slug]/page.tsx
 
-import { useParams } from "next/navigation";
+import { client } from "@/sanity/client";
+import { type SanityDocument } from "next-sanity";
 
-const SlugPage = () => {
-	const { slug } = useParams();
+import { INDUSTRIES_QUERY } from "../../lib/sanityQueries";
+import { options } from "../../lib/sanityOptions";
+
+interface Industry extends SanityDocument {
+	title: string;
+	slug: { current: string };
+	text: string;
+}
+
+const SlugPage = async ({ params }: { params: { slug: string } }) => {
+	const industriesResult = await client.fetch<Industry>(
+		INDUSTRIES_QUERY,
+		{ slug: "medical" }, //replace with page slug
+		options
+	);
+
+	const categories = industriesResult;
+	console.log(categories);
+
 	return (
 		<div>
 			<h1>Slug Page</h1>
-			<p>Displaying content for: {slug}</p>
+			<p>Displaying content for: {categories?.title}</p>
+			<p>Content: {categories?.text}</p>
 		</div>
 	);
 };

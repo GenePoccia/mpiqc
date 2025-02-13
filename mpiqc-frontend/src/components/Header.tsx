@@ -6,9 +6,8 @@ import { client } from "@/sanity/client";
 import { options } from "../lib/sanityOptions";
 import { NAVIGATION_QUERY } from "../lib/sanityQueries";
 
-interface Industry extends SanityDocument {
+interface Navigation extends SanityDocument {
 	title: string;
-	slug: { current: string };
 	text: string;
 }
 
@@ -53,7 +52,7 @@ const renderCategoryRouter = (category: CategoryInterface, index: Number) => {
 		: renderCategory(category, index);
 };
 const Header = async (): Promise<any> => {
-	const categoriesResult = await client.fetch<Industry[]>(
+	const categoriesResult = await client.fetch<Navigation[]>(
 		NAVIGATION_QUERY,
 		{},
 		options

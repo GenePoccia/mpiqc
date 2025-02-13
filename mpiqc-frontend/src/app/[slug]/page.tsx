@@ -12,10 +12,10 @@ interface Industry extends SanityDocument {
 	text: string;
 }
 
-const SlugPage = async ({ params }: { params: { slug: string } }) => {
+const SlugPage = async ({}: { params: { slug: string } }) => {
 	const industriesResult = await client.fetch<Industry>(
 		INDUSTRIES_QUERY,
-		{ slug: "medical" }, //replace with page slug
+		{ slug: "medical" }, //replace with page slug dynamically
 		options
 	);
 

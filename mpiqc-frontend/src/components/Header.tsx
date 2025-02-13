@@ -27,7 +27,7 @@ interface DropdownItems {
 	frRoute: string;
 }
 
-const renderDropdownCategory = (category: CategoryInterface, index: Number) => {
+const renderDropdownCategory = (category: CategoryInterface, index: number) => {
 	// Change this to use currently set language from context
 
 	return (
@@ -38,7 +38,7 @@ const renderDropdownCategory = (category: CategoryInterface, index: Number) => {
 	);
 };
 
-const renderCategory = (category: CategoryInterface, index: Number) => {
+const renderCategory = (category: CategoryInterface, index: number) => {
 	return (
 		<div key={`category-${index}`}>
 			<Link href={`/${category?.enRoute}`}>{category?.["en"]}</Link>
@@ -46,12 +46,12 @@ const renderCategory = (category: CategoryInterface, index: Number) => {
 	);
 };
 
-const renderCategoryRouter = (category: CategoryInterface, index: Number) => {
+const renderCategoryRouter = (category: CategoryInterface, index: number) => {
 	return category?.isDropdown
 		? renderDropdownCategory(category, index)
 		: renderCategory(category, index);
 };
-const Header = async (): Promise<any> => {
+const Header = async (): Promise<React.ReactElement | null> => {
 	const categoriesResult = await client.fetch<Navigation[]>(
 		NAVIGATION_QUERY,
 		{},
@@ -65,7 +65,7 @@ const Header = async (): Promise<any> => {
 			<div className="w-full px-4 flex justify-between items-center  py-4">
 				<div>This is the header</div>
 				<div className="flex space-x-4">
-					{categories.map((category: CategoryInterface, index: Number) => {
+					{categories.map((category: CategoryInterface, index: number) => {
 						return renderCategoryRouter(category, index);
 					})}
 				</div>

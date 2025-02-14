@@ -7,11 +7,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --large-text: 64px;
+  --medium-text: 32px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: blue;
     --foreground: #ededed;
   }
 }
@@ -20,4 +22,12 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: var(--large-text);
+}
+
+h2 {
+  font-size: var(--medium-text);
 }

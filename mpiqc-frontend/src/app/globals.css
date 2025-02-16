@@ -19,11 +19,23 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0; /* Adjust to your desired background color */
+  color: #333; /* Optional: default text color */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-geist-sans);
+  box-sizing: border-box;
 }
 
+/* Centered content with max-width */
+.container {
+  max-width: 1440px;
+  margin: 0 auto; /* Center horizontally */
+  padding: 0 16px; /* Add padding for smaller screens */
+  box-sizing: border-box;
+}
 h1 {
   font-size: var(--large-text);
 }

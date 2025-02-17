@@ -5,10 +5,11 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: blue;
   --foreground: #171717;
   --large-text: 64px;
   --medium-text: 32px;
+  --text-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,8 +21,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f0f0f0; /* Adjust to your desired background color */
-  color: #333; /* Optional: default text color */
+  background-color: var(--background);
+  color: var(--text-color); 
   min-height: 100vh;
   margin: 0;
   padding: 0;

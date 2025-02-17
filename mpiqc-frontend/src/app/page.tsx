@@ -14,15 +14,15 @@ import {
 export default async function Home() {
 	return (
 		<main>
-			<Certifications />
-			<Contact />
-			<EMSServices />
-			<GlobalLocations />
-			<Industries />
-			<OurTeam />
 			<WelcomeSection />
 			<WhoWeAreSection />
+			<EMSServices />
+			<Certifications />
+			<GlobalLocations />
+			<Industries />
 			<WhyChooseUs />
+			<OurTeam />
+			<Contact />
 		</main>
 	);
 }

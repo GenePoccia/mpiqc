@@ -1,0 +1,5 @@
+import "../../app/globals.css";
+
+export default async function EMSServices() {
+	return <section>EMS Services</section>;
+}

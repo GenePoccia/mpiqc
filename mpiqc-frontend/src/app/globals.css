@@ -29,6 +29,11 @@ body {
   box-sizing: border-box;
 }
 
+section {
+	width: 100%;
+	min-height: 500px;
+	height: 100vh;
+}
 /* Centered content with max-width */
 .container {
   max-width: 1440px;
@@ -36,6 +41,7 @@ body {
   padding: 0 16px; /* Add padding for smaller screens */
   box-sizing: border-box;
 }
+
 h1 {
   font-size: var(--large-text);
 }

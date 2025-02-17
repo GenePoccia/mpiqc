@@ -63,7 +63,7 @@ const Header = async (): Promise<React.ReactElement | null> => {
 	return (
 		categories && (
 			<div className="w-full px-4 flex justify-between items-center  py-4">
-				<div>This is the header</div>
+				<div>Logo here</div>
 				<div className="flex space-x-4">
 					{categories.map((category: CategoryInterface, index: number) => {
 						return renderCategoryRouter(category, index);

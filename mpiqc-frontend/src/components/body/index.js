@@ -1,0 +1,9 @@
+export { default as Certifications } from "./CertificationsSection";
+export { default as Contact } from "./ContactSection";
+export { default as EMSServices } from "./EMSServicesSection";
+export { default as GlobalLocations } from "./GlobalLocationsSection";
+export { default as Industries } from "./Industries";
+export { default as OurTeam } from "./OurTeamSection";
+export { default as WelcomeSection } from "./WelcomeSection";
+export { default as WhoWeAreSection } from "./WhoWeAreSection";
+export { default as WhyChooseUs } from "./WhyChooseUsSection";

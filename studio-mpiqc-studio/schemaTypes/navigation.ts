@@ -43,50 +43,6 @@ export const navigation = defineType({
               type: 'string',
               validation: (rule) => rule.required(),
             }),
-            defineField({
-              name: 'isDropdown',
-              title: 'Is Dropdown?',
-              type: 'boolean',
-              initialValue: false,
-            }),
-            defineField({
-              name: 'dropdownItems',
-              title: 'Dropdown Items',
-              type: 'array',
-              of: [
-                {
-                  type: 'object',
-                  name: 'dropdownItem',
-                  fields: [
-                    defineField({
-                      name: 'en',
-                      title: 'English',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'fr',
-                      title: 'French',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'enRoute',
-                      title: 'English Route',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'frRoute',
-                      title: 'French Route',
-                      type: 'string',
-                      validation: (rule) => rule.required(),
-                    }),
-                  ],
-                },
-              ],
-              hidden: ({parent}) => !parent?.isDropdown, // Hide unless isDropdown is true
-            }),
           ],
         },
       ],

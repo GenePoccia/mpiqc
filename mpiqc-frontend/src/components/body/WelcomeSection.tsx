@@ -1,5 +1,5 @@
 import "../../app/globals.css";
 
 export default async function WelcomeSection() {
-	return <section>Welcome Section</section>;
+	return <section id="home">Welcome Section</section>;
 }

@@ -1,5 +1,5 @@
 import "../../app/globals.css";
 
 export default async function OurTeam() {
-	return <section>Our Team</section>;
+	return <section id="our-team">Our Team</section>;
 }

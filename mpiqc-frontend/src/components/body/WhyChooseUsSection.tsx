@@ -1,5 +1,5 @@
 import "../../app/globals.css";
 
 export default async function WhyChooseUs() {
-	return <section>Why Choose Us</section>;
+	return <section id="choose-us">Why Choose Us</section>;
 }

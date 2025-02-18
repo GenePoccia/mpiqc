@@ -2,7 +2,10 @@ import "../../app/globals.css";
 
 export default async function EMSServices() {
 	return (
-		<section className="flex flex-col items-center justify-center h-screen space-y-6">
+		<section
+			id="ems-services"
+			className="flex flex-col items-center justify-center h-screen space-y-6"
+		>
 			<div className="flex justify-between space-x-4">
 				<div>exploring our products</div>
 				<div>image placeholder</div>

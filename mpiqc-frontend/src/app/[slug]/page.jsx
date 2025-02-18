@@ -14,9 +14,9 @@ const SlugPage = async ({ params }) => {
 
 	return (
 		<div>
-			<h1>Slug Page</h1>
-			<p>Displaying content for: {category.title}</p>
-			<p>Content: {category.text}</p>
+			<p>Slug Page</p>
+			<h1>Displaying content for: {category.title}</h1>
+			<h2>Content: {category.text}</h2>
 		</div>
 	);
 };

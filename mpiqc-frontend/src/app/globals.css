@@ -7,20 +7,15 @@
 :root {
   --background: blue;
   --foreground: #171717;
-  --large-text: 64px;
+  --large-text: 48px;
   --medium-text: 32px;
+  --small-text: 24px;
+  --extra-small-text: 16px;
   --text-color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: blue;
-    --foreground: #ededed;
-  }
-}
 
 body {
-
   background-color: var(--background);
   color: var(--text-color); 
   font-family: var(--font-geist-sans);
@@ -43,4 +38,13 @@ h1 {
 
 h2 {
   font-size: var(--medium-text);
+}
+
+span {
+  font-size: var(--small-text)
+}
+
+p {
+  font-size: var(--extra-small-text)
+
 }

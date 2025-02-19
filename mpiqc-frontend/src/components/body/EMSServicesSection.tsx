@@ -46,7 +46,7 @@ export default async function EMSServices() {
 				id="ems-services"
 				className="text-left w-lg"
 			>
-				<h3>EMS Services</h3>
+				<span>EMS Services</span>
 				<h1>Something clever here about the company</h1>
 			</section>
 			<section className="flex flex-row my-24">

@@ -21,6 +21,27 @@ const logos = [
 	},
 ];
 
+interface Logo {
+	id: string;
+	description: string;
+	image: string;
+	className: string;
+}
+const renderLogos = (logo: Logo, index: number) => {
+	return (
+		<div key={`${logo?.id}_` + index}>
+			<div>
+				<div>
+					<img
+						src={logo.image}
+						alt={logo.description}
+						className={logo.className}
+					/>
+				</div>
+			</div>
+		</div>
+	);
+};
 export default async function Certifications() {
 	return (
 		<section
@@ -29,19 +50,7 @@ export default async function Certifications() {
 		>
 			<h3>Certifications</h3>
 			<div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 mt-12">
-				{logos.map((logo) => (
-					<div key={logo.id}>
-						<div>
-							<div>
-								<img
-									src={logo.image}
-									alt={logo.description}
-									className={logo.className}
-								/>
-							</div>
-						</div>
-					</div>
-				))}
+				{logos.map((logo, index) => renderLogos(logo, index))}
 			</div>
 		</section>
 	);

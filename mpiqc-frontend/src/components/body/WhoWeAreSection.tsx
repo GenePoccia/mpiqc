@@ -28,7 +28,7 @@ export default async function WhoAreWe({
 		src: "https://www.shadcnblocks.com/images/block/placeholder-1.svg",
 		alt: "Hero section demo image showing interface components",
 	},
-}: Hero1Props) {
+}) {
 	return (
 		<section
 			id="story"

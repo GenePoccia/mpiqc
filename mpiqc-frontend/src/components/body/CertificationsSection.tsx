@@ -5,19 +5,16 @@ const logos = [
 		id: "logo-1",
 		description: "Logo 1",
 		image: "https://shadcnblocks.com/images/block/logos/astro.svg",
-		className: "h-7 w-auto",
 	},
 	{
 		id: "logo-2",
 		description: "Logo 2",
 		image: "https://shadcnblocks.com/images/block/logos/figma.svg",
-		className: "h-7 w-auto",
 	},
 	{
 		id: "logo-3",
 		description: "Logo 3",
 		image: "https://shadcnblocks.com/images/block/logos/nextjs.svg",
-		className: "h-7 w-auto",
 	},
 ];
 
@@ -25,7 +22,6 @@ interface Logo {
 	id: string;
 	description: string;
 	image: string;
-	className: string;
 }
 const renderLogos = (logo: Logo, index: number) => {
 	return (
@@ -35,7 +31,7 @@ const renderLogos = (logo: Logo, index: number) => {
 					<img
 						src={logo.image}
 						alt={logo.description}
-						className={logo.className}
+						className="h-7 w-auto"
 					/>
 				</div>
 			</div>

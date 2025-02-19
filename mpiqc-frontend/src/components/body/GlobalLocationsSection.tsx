@@ -13,7 +13,6 @@ const locations = [
 		phoneTwo: "+1-855-466-7472",
 		emailIcon: "placeholder email",
 		email: "email@address.com",
-		className: "h-7 w-auto mb-4",
 	},
 	{
 		id: "logo-2",
@@ -27,7 +26,6 @@ const locations = [
 		phoneTwo: "+1-855-466-7472",
 		emailIcon: "placeholder email",
 		email: "email@address.com",
-		className: "h-7 w-auto mb-4",
 	},
 	{
 		id: "logo-3",
@@ -41,7 +39,6 @@ const locations = [
 		phoneTwo: "+1-855-466-7472",
 		emailIcon: "placeholder email",
 		email: "email@address.com",
-		className: "h-7 w-auto mb-4",
 	},
 	{
 		id: "logo-4",
@@ -55,14 +52,12 @@ const locations = [
 		phoneTwo: "+1-855-466-7472",
 		emailIcon: "placeholder email",
 		email: "email@address.com",
-		className: "h-7 w-auto mb-4",
 	},
 ];
 interface Location {
 	id: string;
 	description: string;
 	image: string;
-	className: string;
 	locationName: string;
 	addressIcon: string;
 	address: string;
@@ -80,7 +75,7 @@ const renderLocations = (location: Location, index: number) => {
 				<img
 					src={location.image}
 					alt={location.description}
-					className={location.className}
+					className="h-7 w-auto mb-4"
 				/>
 				<span>{location.locationName}</span>
 				<div className="my-2 w-3xs">

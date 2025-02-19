@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 
-:root {
+:root {  
   --background: blue;
   --foreground: #171717;
   --large-text: 48px;

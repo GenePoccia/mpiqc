@@ -1,24 +1,24 @@
 import "../../app/globals.css";
 
-interface Hero1Props {
-	badge?: string;
-	heading: string;
-	description: string;
-	buttons?: {
-		primary?: {
-			text: string;
-			url: string;
-		};
-		secondary?: {
-			text: string;
-			url: string;
-		};
-	};
-	image: {
-		src: string;
-		alt: string;
-	};
-}
+// interface Hero1Props {
+// 	badge?: string;
+// 	heading: string;
+// 	description: string;
+// 	buttons?: {
+// 		primary?: {
+// 			text: string;
+// 			url: string;
+// 		};
+// 		secondary?: {
+// 			text: string;
+// 			url: string;
+// 		};
+// 	};
+// 	image: {
+// 		src: string;
+// 		alt: string;
+// 	};
+// }
 
 export default async function WhoAreWe({
 	heading = "Something clever here about the company",

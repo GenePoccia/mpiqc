@@ -40,11 +40,14 @@ h2 {
   font-size: var(--medium-text);
 }
 
-span {
+h3 {
   font-size: var(--small-text)
+}
+
+span {
+  font-size: var(--extra-small-text)
 }
 
 p {
   font-size: var(--extra-small-text)
-
 }

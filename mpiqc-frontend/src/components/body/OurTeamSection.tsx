@@ -1,38 +1,96 @@
-import "../../app/globals.css";
+"use client";
 
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
+	type CarouselApi,
 } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export default async function OurTeam() {
+export default function OurTeam() {
+	const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [totalItems, setTotalItems] = useState(0);
+
+	useEffect(() => {
+		if (!carouselApi) return;
+
+		const updateCarouselState = () => {
+			setCurrentIndex(carouselApi.selectedScrollSnap());
+			setTotalItems(carouselApi.scrollSnapList().length);
+		};
+
+		updateCarouselState();
+
+		carouselApi.on("select", updateCarouselState);
+
+		return () => {
+			carouselApi.off("select", updateCarouselState); // Clean up on unmount
+		};
+	}, [carouselApi]);
+
+	const scrollToIndex = (index: number) => {
+		carouselApi?.scrollTo(index);
+	};
+
 	return (
-		<section
-			id="our-team"
-			className="flex justify-center"
-		>
-			<Carousel className="w-full w-3xl m-height-md">
+		<section className="relative h-96 max-h-[500px] px-5 mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
+			<Carousel
+				setApi={setCarouselApi}
+				opts={{ loop: true }}
+				className="w-full max-w-7xl h-96 max-h-[500px] z-10"
+			>
 				<CarouselContent>
 					{Array.from({ length: 5 }).map((_, index) => (
 						<CarouselItem key={index}>
-							<div className="p-1">
-								<Card>
-									<CardContent className="flex aspect-[16/9] items-center justify-center p-6">
-										<span className="text-4xl font-semibold">{index + 1}</span>
-									</CardContent>
-								</Card>
-							</div>
+							<Card className="bg-gray-400">
+								<CardContent className="flex items-center justify-center h-96 max-h-[500px] p-6">
+									<span className="text-4xl font-semibold">{index + 1}</span>
+								</CardContent>
+							</Card>
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPrevious />
-				<CarouselNext />
 			</Carousel>
+
+			{/* Navigation Arrows */}
+			<div className="absolute inset-0 z-20 flex items-center justify-between px-3 pointer-events-none">
+				<Button
+					onClick={() => scrollToIndex(currentIndex - 1)}
+					className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"
+				>
+					<ChevronLeft
+						className="size-32"
+						strokeWidth={0.5}
+					/>
+				</Button>
+				<Button
+					onClick={() => scrollToIndex(currentIndex + 1)}
+					className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"
+				>
+					<ChevronRight
+						className="size-32"
+						strokeWidth={0.5}
+					/>
+				</Button>
+			</div>
+
+			{/* Navigation Dots */}
+			<div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
+				{Array.from({ length: totalItems }).map((_, index) => (
+					<button
+						key={index}
+						onClick={() => scrollToIndex(index)}
+						className={`w-3 h-3 rounded-full ${
+							currentIndex === index ? "bg-black" : "bg-gray-300"
+						}`}
+					/>
+				))}
+			</div>
 		</section>
 	);
 }

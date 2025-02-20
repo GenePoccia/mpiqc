@@ -47,7 +47,7 @@ export default function OurTeam() {
 				<CarouselContent>
 					{Array.from({ length: 5 }).map((_, index) => (
 						<CarouselItem key={index}>
-							<Card className="bg-gray-400">
+							<Card className="bg-gray-500">
 								<CardContent className="flex items-center justify-center h-96 max-h-[500px] p-6">
 									<span className="text-4xl font-semibold">{index + 1}</span>
 								</CardContent>
@@ -61,19 +61,19 @@ export default function OurTeam() {
 			<div className="absolute inset-0 z-20 flex items-center justify-between px-3 pointer-events-none">
 				<Button
 					onClick={() => scrollToIndex(currentIndex - 1)}
-					className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"
+					className="pointer-events-auto w-32 h-32 bg-transparent shadow-none hover:bg-transparent flex items-center justify-center flex-shrink-0"
 				>
 					<ChevronLeft
-						className="size-32"
+						className="!w-12 !h-12"
 						strokeWidth={0.5}
 					/>
 				</Button>
 				<Button
 					onClick={() => scrollToIndex(currentIndex + 1)}
-					className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"
+					className="pointer-events-auto w-32 h-32 bg-transparent shadow-none hover:bg-transparent flex items-center justify-center flex-shrink-0"
 				>
 					<ChevronRight
-						className="size-32"
+						className="!w-12 !h-12"
 						strokeWidth={0.5}
 					/>
 				</Button>

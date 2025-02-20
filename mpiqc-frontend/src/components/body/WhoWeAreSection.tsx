@@ -32,15 +32,17 @@ export default async function WhoAreWe({
 	return (
 		<section
 			id="story"
-			className="min-h-[70vh] p-6 flex items-center"
+			className="min-h-[70vh] flex items-center"
 		>
-			<div className="container flex mx-24">
-				<div className="grid items-stretch gap-36 lg:grid-cols-2 h-full">
-					<img
-						src={image.src}
-						alt={image.alt}
-						className="max-h-96 w-full h-full rounded-md object-cover"
-					/>
+			<div className="container mx-24">
+				<div className="grid gap-36 lg:grid-cols-2 h-full items-stretch">
+					<div className="h-full">
+						<img
+							src={image.src}
+							alt={image.alt}
+							className="w-full h-full rounded-md object-cover"
+						/>
+					</div>
 					<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 						<h3>Who We Are</h3>
 						<h2 className="my-6">{heading}</h2>

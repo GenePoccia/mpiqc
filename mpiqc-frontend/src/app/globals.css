@@ -25,7 +25,9 @@ body {
     place-items: center; /* Centers both horizontally and vertically */
     min-height: 100vh;
     text-align: center;
-    margin: 0;
+    margin: auto;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 html {

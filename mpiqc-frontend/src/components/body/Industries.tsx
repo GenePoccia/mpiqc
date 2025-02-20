@@ -56,12 +56,15 @@ interface Industry {
 
 const imageFirstMagazine = (industry: Industry) => {
 	return (
-		<>
-			<img
-				src={industry.image.src}
-				alt={industry.image.alt}
-				className="max-h-96 w-full h-full rounded-md object-cover"
-			/>
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-24">
+			<div className="h-full">
+				<img
+					src={industry.image.src}
+					alt={industry.image.alt}
+					className="w-full h-full rounded-md object-cover"
+				/>
+			</div>
+
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>Who We Are</h3>
 				<h2 className="my-6">{industry.heading}</h2>
@@ -69,13 +72,13 @@ const imageFirstMagazine = (industry: Industry) => {
 					{industry.description}
 				</p>
 			</div>
-		</>
+		</div>
 	);
 };
 
 const textFirstMagazine = (industry: Industry) => {
 	return (
-		<>
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-24">
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>Who We Are</h3>
 				<h2 className="my-6">{industry.heading}</h2>
@@ -83,12 +86,14 @@ const textFirstMagazine = (industry: Industry) => {
 					{industry.description}
 				</p>
 			</div>
-			<img
-				src={industry.image.src}
-				alt={industry.image.alt}
-				className="max-h-96 w-full h-full rounded-md object-cover"
-			/>
-		</>
+			<div className="h-full">
+				<img
+					src={industry.image.src}
+					alt={industry.image.alt}
+					className="w-full h-full rounded-md object-cover"
+				/>
+			</div>
+		</div>
 	);
 };
 
@@ -97,7 +102,7 @@ const renderIndustry = (industry: Industry, index: number) => {
 	return (
 		<div
 			key={`${industry?.heading}_` + index}
-			className="grid items-stretch gap-36 mx-24 my-20 lg:grid-cols-2 h-full"
+			className="flex items-stretch mx-12 my-12 lg:grid-cols-2 h-full"
 		>
 			{isOdd ? textFirstMagazine(industry) : imageFirstMagazine(industry)}
 		</div>

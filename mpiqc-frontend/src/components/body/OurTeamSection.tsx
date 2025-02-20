@@ -38,7 +38,7 @@ export default function OurTeam() {
 	};
 
 	return (
-		<section className="relative h-96 max-h-[500px] px-5 mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
+		<section className="relative h-96 max-h-[500px] mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
 			<Carousel
 				setApi={setCarouselApi}
 				opts={{ loop: true }}

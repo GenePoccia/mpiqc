@@ -5,13 +5,13 @@
 
 
 :root {  
-  --background: blue;
+  --background: white;
   --foreground: #171717;
   --large-text: 48px;
   --medium-text: 32px;
   --small-text: 24px;
   --extra-small-text: 16px;
-  --text-color: white;
+  --text-color: black;
 }
 
 

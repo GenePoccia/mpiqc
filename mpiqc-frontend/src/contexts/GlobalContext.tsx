@@ -7,15 +7,12 @@ import {
 	useState,
 	ReactNode,
 } from "react";
-import { type SanityDocument } from "next-sanity";
+
 import { client } from "@/sanity/client";
 import { options } from "../lib/sanityOptions";
 import { NAVIGATION_QUERY } from "../lib/sanityQueries";
-import {
-	CategoryInterface,
-	Navigation,
-	GlobalContextType,
-} from "../types/contextTypes"; // Import the interfaces here
+import { GlobalContextType } from "../types/contextTypes";
+import { CategoryInterface, Navigation } from "../types/sanityTypes";
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 

@@ -10,6 +10,7 @@ export default async function Contact() {
 				<div className="mx-auto flex max-w-screen-xl flex-col justify-between gap-10 lg:gap-20">
 					<div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
 						<div className="text-center lg:text-left">
+							{/* eslint-disable-next-line react/no-unescaped-entities */}
 							<h3>Let's Build Something Great</h3>
 							<h1>Request a Quote</h1>
 							<p>

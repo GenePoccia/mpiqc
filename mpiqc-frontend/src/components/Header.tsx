@@ -3,8 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
+import { CategoryInterface } from "@/types/sanityTypes";
 
-const renderCategory = (category: any, index: number) => (
+const renderCategory = (category: CategoryInterface, index: number) => (
 	<div key={`category-${index}`}>
 		<Link
 			href={`#${category.enRoute}`}
@@ -14,9 +15,6 @@ const renderCategory = (category: any, index: number) => (
 		</Link>
 	</div>
 );
-
-const changeLanguage = () => {};
-
 const Header = () => {
 	const { categories, language, setLanguage } = useGlobalContext();
 

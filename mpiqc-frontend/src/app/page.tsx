@@ -1,4 +1,5 @@
 import "./globals.css";
+import React from "react";
 import {
 	Certifications,
 	Contact,
@@ -11,7 +12,8 @@ import {
 	WhyChooseUs,
 } from "../components/body";
 
-export default async function Home() {
+const Home = () => {
+
 	return (
 		<main>
 			<WelcomeSection />
@@ -26,3 +28,5 @@ export default async function Home() {
 		</main>
 	);
 }
+
+export default Home

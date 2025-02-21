@@ -1,65 +1,41 @@
+"use client";
+
 import React from "react";
-import { type SanityDocument } from "next-sanity";
 import Link from "next/link";
+import { useGlobalContext } from "../contexts/GlobalContext";
 
-import { client } from "@/sanity/client";
-import { options } from "../lib/sanityOptions";
-import { NAVIGATION_QUERY } from "../lib/sanityQueries";
+const renderCategory = (category: any, index: number) => (
+	<div key={`category-${index}`}>
+		<Link
+			href={`#${category.enRoute}`}
+			scroll={true}
+		>
+			{category.en}
+		</Link>
+	</div>
+);
 
-interface Navigation extends SanityDocument {
-	title: string;
-	text: string;
-}
+const changeLanguage = () => {};
 
-interface CategoryInterface {
-	en: string;
-	fr: string;
-	enRoute: string;
-	frRoute: string;
-	isDropdown: boolean;
-	dropdownItems?: Array<DropdownItems>;
-}
+const Header = () => {
+	const { categories, language, setLanguage } = useGlobalContext();
 
-interface DropdownItems {
-	en: string;
-	fr: string;
-	enRoute: string;
-	frRoute: string;
-}
-
-const renderCategory = (category: CategoryInterface, index: number) => {
+	const changeLanguage = () => {
+		setLanguage(language === "en" ? "fr" : "en");
+	};
 	return (
-		<div key={`category-${index}`}>
-			<Link
-				href={`#${category?.enRoute}`}
-				scroll={true}
-			>
-				{category?.["en"]}
-			</Link>
-		</div>
-	);
-};
-
-const Header = async (): Promise<React.ReactElement | null> => {
-	const categoriesResult = await client.fetch<Navigation[]>(
-		NAVIGATION_QUERY,
-		{},
-		options
-	);
-
-	const categories = categoriesResult[0]?.navigationCategories;
-
-	return (
-		categories && (
-			<div className="w-full px-4 flex justify-between items-center  py-4">
-				<div>Logo here</div>
-				<div className="flex space-x-4">
-					{categories.map((category: CategoryInterface, index: number) => {
-						return renderCategory(category, index);
-					})}
+		<div className="w-full px-4 flex justify-between items-center py-4">
+			<div>Logo here</div>
+			<div className="flex space-x-4">
+				{categories.map((category, index) => renderCategory(category, index))}
+				<div
+					onClick={changeLanguage}
+					className="cursor-pointer"
+				>
+					{language.toUpperCase()}
 				</div>
 			</div>
-		)
+		</div>
 	);
 };
 

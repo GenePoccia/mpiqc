@@ -11,6 +11,21 @@ export const navigation = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'logo', // Image field at the root level
+      title: 'Header Logo',
+      type: 'image',
+      options: {
+        hotspot: true, // Enables image cropping in the Sanity Studio
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'navigationCategories',
       title: 'Navigation Categories',
       type: 'array',
@@ -28,18 +43,6 @@ export const navigation = defineType({
             defineField({
               name: 'fr',
               title: 'French',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'enRoute',
-              title: 'English Route',
-              type: 'string',
-              validation: (rule) => rule.required(),
-            }),
-            defineField({
-              name: 'frRoute',
-              title: 'French Route',
               type: 'string',
               validation: (rule) => rule.required(),
             }),

@@ -8,10 +8,6 @@ export interface Navigation extends SanityDocument {
 export interface CategoryInterface {
 	en: string;
 	fr: string;
-	enRoute: string;
-	frRoute: string;
-	isDropdown: boolean;
-	dropdownItems?: DropdownItems[];
 }
 
 export interface DropdownItems {

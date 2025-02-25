@@ -1,7 +1,8 @@
 import { CategoryInterface } from "./sanityTypes";
+import { Dispatch, SetStateAction } from "react";
 
 export interface GlobalContextType {
 	categories: CategoryInterface[];
 	language: "en" | "fr";
-	setLanguage: (language: string) => void;
+	setLanguage: Dispatch<SetStateAction<"en" | "fr">>;
 }

@@ -22,7 +22,7 @@ interface ProviderProps {
 
 export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
-	const [language, setLanguage] = useState<string>("en");
+	const [language, setLanguage] = useState<"en" | "fr">("en");
 
 	useEffect(() => {
 		const fetchNavigation = async () => {

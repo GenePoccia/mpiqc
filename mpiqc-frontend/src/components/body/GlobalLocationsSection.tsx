@@ -1,8 +1,6 @@
 import "../../app/globals.css";
 import { LocationSectionData, Location } from "@/types/sanityTypes";
 
-
-
 const renderLocations = (location: Location, language: 'en' | 'fr', index: number) => {
 
 	return (
@@ -23,7 +21,7 @@ const renderLocations = (location: Location, language: 'en' | 'fr', index: numbe
 					{/* TODO: replace with icon*/}
 					<span className="mr-2">i</span>
 					<div className="flex flex-col">
-						{location?.phoneNumbers?.map((ele) =>  <span>{ele}</span>)}
+						{location?.phoneNumbers?.map((ele, index) =>  <span key={`phone_number_` + index}>{ele}</span>)}
 					</div>
 				</div>
 				<div className="my-2">

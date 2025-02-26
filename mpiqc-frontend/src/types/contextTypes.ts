@@ -1,4 +1,3 @@
-import { Industries } from "@/components/body";
 import {
 	CategoryInterface,
 	WelcomeSectionData,

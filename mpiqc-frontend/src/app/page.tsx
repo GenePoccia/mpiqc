@@ -4,19 +4,20 @@ import "./globals.css";
 import React from "react";
 import {
 	Certifications,
-	Contact,
+	// Contact,
 	EMSServices,
 	GlobalLocations,
 	Industries,
-	OurTeam,
+	// OurTeam,
 	WelcomeSection,
 	WhoWeAreSection,
-	WhyChooseUs,
+	// WhyChooseUs,
 } from "../components/body";
 import { useGlobalContext } from "../contexts/GlobalContext";
 
 const Home = () => {
-	const { 		welcomeData,
+	const { 		
+		welcomeData,
 		language,
 		whoWeAreData,
 		ourCapabilitiesData,
@@ -24,8 +25,10 @@ const Home = () => {
 		locationsData,
 		industriesData,
 		whyUsData,
-		meetTheTeamData,
-		contactUsData } = useGlobalContext();
+		//meetTheTeamData,
+		//contactUsData 
+	} = 
+		useGlobalContext();
 
 	return (
 		<main>

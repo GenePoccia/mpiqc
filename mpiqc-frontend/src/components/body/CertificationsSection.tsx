@@ -89,7 +89,7 @@ export default function Certifications({
 	const description = data?.description?.[language]
 
 	// TODO: Pass this to render function
-	const certifications = data?.certifications
+	// const certifications = data?.certifications
 
 	return (
 		<section

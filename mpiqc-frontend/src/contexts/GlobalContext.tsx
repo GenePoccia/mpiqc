@@ -19,6 +19,7 @@ import {
 	OUR_CAPABILITIES_QUERY,
 	CERTIFICATIONS_QUERY,
 	LOCATIONS_QUERY,
+	INDUSTRIES_QUERY,
 	WHY_US_QUERY,
 	MEET_THE_TEAM_QUERY,
 	CONTACT_US_QUERY,
@@ -28,9 +29,10 @@ import {
 	CategoryInterface,
 	WelcomeSectionData,
 	WhoWeAreSectionData,
-	ourCapabilitiesSectionData,
+	OurCapabilitiesSectionData,
 	CertificationSectionData,
 	LocationSectionData,
+	IndustriesSectionData,
 	WhyUsSectionData,
 	MeetTheTeamSectionData,
 	ContactUsSectionData,
@@ -45,14 +47,25 @@ interface ProviderProps {
 export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
 	const [language, setLanguage] = useState<"en" | "fr">("en");
-	const [welcomeData, setWelcomeData] = useState({});
-	const [whoWeAreData, setWhoWeAreData] = useState({});
-	const [ourCapabilitiesData, setOurCapabilitiesData] = useState({});
-	const [certificationsData, setCertificationsData] = useState({});
-	const [locationsData, setLocationsData] = useState({});
-	const [whyUsData, setWhyUsData] = useState({});
-	const [meetTheTeamData, setMeetTheTeamData] = useState({});
-	const [contactUsData, setContactUsData] = useState({});
+	const [welcomeData, setWelcomeData] = useState<WelcomeSectionData | null>(
+		null
+	);
+	const [whoWeAreData, setWhoWeAreData] = useState<WhoWeAreSectionData | null>(
+		null
+	);
+	const [ourCapabilitiesData, setOurCapabilitiesData] =
+		useState<OurCapabilitiesSectionData | null>(null);
+	const [certificationsData, setCertificationsData] =
+		useState<CertificationSectionData | null>(null);
+	const [locationsData, setLocationsData] =
+		useState<LocationSectionData | null>(null);
+	const [industriesData, setIndustriesData] =
+		useState<IndustriesSectionData | null>(null);
+	const [whyUsData, setWhyUsData] = useState<WhyUsSectionData | null>(null);
+	const [meetTheTeamData, setMeetTheTeamData] =
+		useState<MeetTheTeamSectionData | null>(null);
+	const [contactUsData, setContactUsData] =
+		useState<ContactUsSectionData | null>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -64,6 +77,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 					ourCapabilities,
 					certifications,
 					locations,
+					industries,
 					whyUs,
 					meetTheTeam,
 					contactUs,
@@ -71,7 +85,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 					client.fetch<SanityDocument[]>(NAVIGATION_QUERY, {}, options),
 					client.fetch<WelcomeSectionData[]>(WELCOME_QUERY, {}, options),
 					client.fetch<WhoWeAreSectionData[]>(WHO_WE_ARE_QUERY, {}, options),
-					client.fetch<ourCapabilitiesSectionData[]>(
+					client.fetch<OurCapabilitiesSectionData[]>(
 						OUR_CAPABILITIES_QUERY,
 						{},
 						options
@@ -82,6 +96,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 						options
 					),
 					client.fetch<LocationSectionData[]>(LOCATIONS_QUERY, {}, options),
+					client.fetch<IndustriesSectionData[]>(INDUSTRIES_QUERY, {}, options),
 					client.fetch<WhyUsSectionData[]>(WHY_US_QUERY, {}, options),
 					client.fetch<MeetTheTeamSectionData[]>(
 						MEET_THE_TEAM_QUERY,
@@ -97,6 +112,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				setOurCapabilitiesData(ourCapabilities[0]);
 				setCertificationsData(certifications[0]);
 				setLocationsData(locations[0]);
+				setIndustriesData(industries[0]);
 				setWhyUsData(whyUs[0]);
 				setMeetTheTeamData(meetTheTeam[0]);
 				setContactUsData(contactUs[0]);
@@ -117,6 +133,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		ourCapabilitiesData,
 		certificationsData,
 		locationsData,
+		industriesData,
 		whyUsData,
 		meetTheTeamData,
 		contactUsData,

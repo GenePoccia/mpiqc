@@ -1,3 +1,4 @@
+import { CertificationSectionData } from "@/types/sanityTypes";
 import "../../app/globals.css";
 
 const logos = [
@@ -76,17 +77,28 @@ const renderLogos = (logo: Logo, index: number) => {
 		</div>
 	);
 };
-export default async function Certifications() {
+export default function Certifications({
+	data,
+	language,
+}: {
+	data: CertificationSectionData | null;
+	language: "en" | "fr";
+}) {
+
+	const header = data?.header?.[language]
+	const description = data?.description?.[language]
+
+	// TODO: Pass this to render function
+	const certifications = data?.certifications
+
 	return (
 		<section
 			id="certifications"
 			className="flex flex-col my-24 text-center"
 		>
-			<h3 className="mb-4">Certifications</h3>
+			<h3 className="mb-4">{header}</h3>
 			<p className="mx-auto w-3xl">
-				Quality and compliance are at the core of what we do. MPIQC is certified
-				to meet global industry standards, ensuring performance and safety in
-				every product we manufacture.
+				{description}
 			</p>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
 				{logos.map((logo, index) => renderLogos(logo, index))}

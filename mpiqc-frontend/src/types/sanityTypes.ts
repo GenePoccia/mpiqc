@@ -6,27 +6,35 @@ interface LocalizedText {
 }
 
 // content structure
-interface MagazineContent {
+export interface MagazineContent {
 	header: LocalizedText;
 	paragraph: LocalizedText;
-	subheader: LocalizedText;
+	subHeader: LocalizedText;
 	image?: string;
+	_id: string;
 }
-interface Service {
+export interface Service {
 	description: LocalizedText;
 	service: LocalizedText;
 }
-interface Location {
+
+interface Certification {
+	certificationImage: string;
+	alt: string;
+}
+
+export interface Location {
 	address: LocalizedText;
 	city: LocalizedText;
 	email: string;
 	phoneNumbers: Array<string>;
+	_key: string;
 }
 
 interface TeamMember {
 	header: LocalizedText;
 	paragraph: LocalizedText;
-	subheader: LocalizedText;
+	subHeader: LocalizedText;
 }
 
 export interface Navigation extends SanityDocument {
@@ -64,8 +72,9 @@ export interface WhoWeAreSectionData {
 	magazineContent: MagazineContent;
 }
 
-export interface ourCapabilitiesSectionData {
+export interface OurCapabilitiesSectionData {
 	header: LocalizedText;
+	subHeader: LocalizedText;
 	services: Service[];
 }
 
@@ -73,14 +82,18 @@ export interface CertificationSectionData {
 	header: LocalizedText;
 	description: LocalizedText;
 	title: LocalizedText;
-	certifications: string[]; // image urls
+	certifications: Certification[];
 }
 
 export interface LocationSectionData {
 	description: LocalizedText;
 	globalLocations: Location[];
 	header: LocalizedText;
-	subheader: LocalizedText;
+	subHeader: LocalizedText;
+}
+
+export interface IndustriesSectionData {
+	industriesContent: MagazineContent;
 }
 
 export interface WhyUsSectionData {
@@ -95,5 +108,5 @@ export interface MeetTheTeamSectionData {
 export interface ContactUsSectionData {
 	paragraph: LocalizedText;
 	header: LocalizedText;
-	subheader: LocalizedText;
+	subHeader: LocalizedText;
 }

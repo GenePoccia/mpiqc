@@ -1,95 +1,33 @@
 import "../../app/globals.css";
+import { LocationSectionData, Location } from "@/types/sanityTypes";
 
-const locations = [
-	{
-		id: "logo-1",
-		description: "Logo 1",
-		image: "https://shadcnblocks.com/images/block/logos/astro.svg",
-		locationName: "location 1",
-		addressIcon: "placeholder",
-		address: "550 Campbell Street, Cornwall, On. Canada K6H 6T7",
-		phoneIcon: "placeholder phone",
-		phoneOne: "+1-613-936-2000",
-		phoneTwo: "+1-855-466-7472",
-		emailIcon: "placeholder email",
-		email: "email@address.com",
-	},
-	{
-		id: "logo-2",
-		description: "Logo 2",
-		image: "https://shadcnblocks.com/images/block/logos/figma.svg",
-		locationName: "location 2",
-		addressIcon: "placeholder",
-		address: "550 Campbell Street, Cornwall, On. Canada K6H 6T7",
-		phoneIcon: "placeholder phone",
-		phoneOne: "+1-613-936-2000",
-		phoneTwo: "+1-855-466-7472",
-		emailIcon: "placeholder email",
-		email: "email@address.com",
-	},
-	{
-		id: "logo-3",
-		description: "Logo 3",
-		image: "https://shadcnblocks.com/images/block/logos/nextjs.svg",
-		locationName: "location 3",
-		addressIcon: "placeholder",
-		address: "550 Campbell Street, Cornwall, On. Canada K6H 6T7",
-		phoneIcon: "placeholder phone",
-		phoneOne: "+1-613-936-2000",
-		phoneTwo: "+1-855-466-7472",
-		emailIcon: "placeholder email",
-		email: "email@address.com",
-	},
-	{
-		id: "logo-4",
-		description: "Logo 4",
-		image: "https://shadcnblocks.com/images/block/logos/nextjs.svg",
-		locationName: "location 4",
-		addressIcon: "placeholder",
-		address: "550 Campbell Street, Cornwall, On. Canada K6H 6T7",
-		phoneIcon: "placeholder phone",
-		phoneOne: "+1-613-936-2000",
-		phoneTwo: "+1-855-466-7472",
-		emailIcon: "placeholder email",
-		email: "email@address.com",
-	},
-];
-interface Location {
-	id: string;
-	description: string;
-	image: string;
-	locationName: string;
-	addressIcon: string;
-	address: string;
-	phoneIcon: string;
-	phoneOne: string;
-	phoneTwo: string;
-	emailIcon: string;
-	email: string;
-}
 
-const renderLocations = (location: Location, index: number) => {
+
+const renderLocations = (location: Location, language: 'en' | 'fr', index: number) => {
+
 	return (
-		<div key={`${location?.id}_` + index}>
+		<div key={`${location?._key}_` + index}>
 			<div className="flex flex-col items-center">
-				<img
+				{/* <img
 					src={location.image}
 					alt={location.description}
 					className="h-7 w-auto mb-4"
-				/>
-				<span>{location.locationName}</span>
+				/> */}image placeholer
+				<span>{location.city?.[language]}</span>
 				<div className="my-2 w-3xs">
+					{/* TODO: replace with icon*/}
 					<span className="mr-2">i</span>
-					<span>{location.address}</span>
+					<span>{location?.address?.[language]}</span>
 				</div>
 				<div className="flex flex-row my-2">
+					{/* TODO: replace with icon*/}
 					<span className="mr-2">i</span>
 					<div className="flex flex-col">
-						<span>{location.phoneOne}</span>
-						<span>{location.phoneTwo}</span>
+						{location?.phoneNumbers?.map((ele) =>  <span>{ele}</span>)}
 					</div>
 				</div>
 				<div className="my-2">
+					{/* TODO: replace with icon*/}
 					<span className="mr-2">i</span>
 					<span>{location.email}</span>
 				</div>
@@ -98,18 +36,31 @@ const renderLocations = (location: Location, index: number) => {
 	);
 };
 
-export default async function GlobalLocations() {
+export default function GlobalLocations({
+	data,
+	language,
+}: {
+	data: LocationSectionData | null;
+	language: "en" | "fr";
+}) {
+
+	const header = data?.header?.[language]
+	const subHeader = data?.subHeader?.[language]
+	const description = data?.description?.[language]
+	const globalLocations = data?.globalLocations
+
 	return (
 		<>
 			<section
 				id="locations"
 				className="text-left w-sm"
 			>
-				<span>Want to Find Us?</span>
-				<h1>Our Global Locations</h1>
+				<span>{subHeader}</span>
+				<h1>{header}</h1>
+				<p className="text-left w-sm">{description}</p>
 			</section>
-			<section className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 my-12">
-				{locations.map((location, index) => renderLocations(location, index))}
+			<section className="flex flex-wrap justify-center items-center gap-y-4 my-12">
+				{globalLocations?.map((location, index) => renderLocations(location ,language, index))}
 			</section>
 		</>
 	);

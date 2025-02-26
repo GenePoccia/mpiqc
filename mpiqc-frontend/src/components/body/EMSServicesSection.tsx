@@ -1,56 +1,43 @@
+import { OurCapabilitiesSectionData, Service } from "@/types/sanityTypes";
 import "../../app/globals.css";
 
-interface Service {
-	heading: string;
-	description: string;
-}
-const tempServices = [
-	{
-		heading: "Service",
-		description:
-			"Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. ",
-	},
-	{
-		heading: "Service",
-		description:
-			"Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. ",
-	},
-	{
-		heading: "Service",
-		description:
-			"Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. ",
-	},
-	{
-		heading: "Service",
-		description:
-			"Body text for whatever you’d like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story. ",
-	},
-];
 
-const renderService = (service: Service, index: number) => {
+const renderService = (service: Service, language: 'en' | 'fr', index: number) => {
 	return (
 		<div
 			key={index}
 			className="mx-12"
 		>
-			<h3 className="mb-6 font-bold">{service?.heading}</h3>
-			<p>{service?.description}</p>
+			<h3 className="mb-6 font-bold">{service?.service?.[language]}</h3>
+			<p>{service?.description[language]}</p>
 		</div>
 	);
 };
 
-export default async function EMSServices() {
+export default function EMSServices({
+	data,
+	language,
+}: {
+	data: OurCapabilitiesSectionData | null;
+	language: "en" | "fr";
+}) {
+
+	const header = data?.header?.[language]
+	const subHeader = data?.subHeader?.[language]
+
+	const services = data?.services
+
 	return (
 		<>
 			<section
 				id="ems-services"
 				className="text-left w-lg"
 			>
-				<span>EMS Services</span>
-				<h1>Something clever here about the company</h1>
+				<span>{subHeader}</span>
+				<h1>{header}</h1>
 			</section>
 			<section className="flex flex-row my-24">
-				{tempServices.map((ele, index) => renderService(ele, index))}
+				{services?.map((ele, index) => renderService(ele, language, index))}
 			</section>
 		</>
 	);

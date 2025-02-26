@@ -31,8 +31,8 @@ export const magazine = defineType({
       ],
     }),
     defineField({
-      name: 'subheader',
-      title: 'Subheader',
+      name: 'subHeader',
+      title: 'subHeader',
       type: 'object',
       fields: [
         defineField({

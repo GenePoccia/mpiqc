@@ -11,7 +11,7 @@ export const industries = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'industriesContent',
+      name: 'magazineContent',
       title: 'Industries Content',
       type: 'object',
       fields: [
@@ -41,8 +41,8 @@ export const industries = defineType({
           ],
         }),
         defineField({
-          name: 'subheader',
-          title: 'Subheader',
+          name: 'subHeader',
+          title: 'subHeader',
           type: 'object',
           fields: [
             defineField({

@@ -32,7 +32,7 @@ export const ourCapabilities = defineType({
     defineField({
       type: 'object',
       name: 'subHeader',
-      title: 'Subheader',
+      title: 'subHeader',
       fields: [
         defineField({
           name: 'en',

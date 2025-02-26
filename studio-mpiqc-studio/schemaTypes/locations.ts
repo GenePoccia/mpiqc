@@ -31,7 +31,7 @@ export const locations = defineType({
     }),
     defineField({
       type: 'object',
-      name: 'subheader',
+      name: 'subHeader',
       title: 'Sub Header',
       fields: [
         defineField({

@@ -4,14 +4,14 @@ import "./globals.css";
 import React from "react";
 import {
 	Certifications,
-	// Contact,
+	Contact,
 	EMSServices,
 	GlobalLocations,
-	Industries,
-	// OurTeam,
+	IndustriesSection,
+	OurTeam,
 	WelcomeSection,
 	WhoWeAreSection,
-	// WhyChooseUs,
+	WhyChooseUs,
 } from "../components/body";
 import { useGlobalContext } from "../contexts/GlobalContext";
 
@@ -25,11 +25,12 @@ const Home = () => {
 		locationsData,
 		industriesData,
 		whyUsData,
-		//meetTheTeamData,
-		//contactUsData 
+		meetTheTeamData,
+		contactUsData 
 	} = 
 		useGlobalContext();
 
+		console.log(meetTheTeamData)
 	return (
 		<main>
 			{welcomeData && <WelcomeSection data={welcomeData} language={language}/>}
@@ -37,10 +38,10 @@ const Home = () => {
 			{ourCapabilitiesData && <EMSServices data={ourCapabilitiesData} language={language}/>}
 			{certificationsData && <Certifications data={certificationsData} language={language}/>}
 			{locationsData && <GlobalLocations data={locationsData} language={language}/>}
-			{whyUsData && industriesData && <Industries data={whyUsData} industriesData={industriesData} language={language}/>}
-			{/*<WhyChooseUs data={meetTheTeamData} language={language}/>
-			<OurTeam data={welcomeData} language={language}/>
-			<Contact data={contactUsData} language={language} /> */}
+			{industriesData && <IndustriesSection data={industriesData} language={language}/>}
+			{whyUsData && <WhyChooseUs data={whyUsData} language={language}/>}
+			{meetTheTeamData && <OurTeam data={meetTheTeamData} language={language}/>}
+			{contactUsData && <Contact data={contactUsData} language={language} /> }
 		</main>
 	);
 }

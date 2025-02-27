@@ -3,22 +3,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-export default function Contact() {
+
+import { ContactUsSectionData } from "@/types/sanityTypes";
+
+export default function Contact({
+	data,
+	language,
+}: {
+	data: ContactUsSectionData | null;
+	language: "en" | "fr";
+}) {
+	console.log(data);
 	return (
 		<section>
 			<div>
-				<div className="mx-auto flex max-w-screen-xl flex-col justify-between gap-10 lg:gap-20">
+				<div className="mx-auto flex max-w-screen-xl items-center flex-col justify-between gap-10">
+					<h3>{data?.subHeader?.[language]}</h3>
+					<h2>{data?.header?.[language]}</h2>
+					<p className="w-md">{data?.paragraph?.[language]}</p>
 					<div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
-						<div className="text-center lg:text-left">
-							{/* eslint-disable-next-line react/no-unescaped-entities */}
-							<h3>Let's Build Something Great</h3>
-							<h1>Request a Quote</h1>
-							<p>
-								Ready to bring your next project to life? Submit your RFQ today
-								and experience world-class manufacturing with a partner who
-								delivers precision, reliability, and scalability.
-							</p>
-						</div>
+						<div className="text-center lg:text-left"></div>
 					</div>
 					<div className="mx-auto flex max-w-screen-md flex-col gap-6 rounded-lg border p-10 text-left text-black bg-white">
 						<div className="flex gap-4">

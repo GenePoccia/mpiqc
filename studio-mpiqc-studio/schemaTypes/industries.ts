@@ -76,34 +76,34 @@ export const industries = defineType({
               type: 'text',
               validation: (rule) => rule.required(),
             }),
+          ],
+        }),
+        defineField({
+          name: 'bulletedList',
+          title: 'Bulleted List',
+          type: 'array',
+          of: [
             defineField({
-              name: 'bulletedList',
-              title: 'Bulleted List',
-              type: 'array',
-              of: [
+              name: 'item',
+              title: 'List Item',
+              type: 'object',
+              fields: [
                 defineField({
-                  name: 'item',
-                  title: 'List Item',
-                  type: 'object',
-                  fields: [
-                    defineField({
-                      name: 'en',
-                      title: 'English',
-                      type: 'text',
-                      validation: (rule) => rule.required(),
-                    }),
-                    defineField({
-                      name: 'fr',
-                      title: 'French',
-                      type: 'text',
-                      validation: (rule) => rule.required(),
-                    }),
-                  ],
+                  name: 'en',
+                  title: 'English',
+                  type: 'text',
+                  validation: (rule) => rule.required(),
+                }),
+                defineField({
+                  name: 'fr',
+                  title: 'French',
+                  type: 'text',
+                  validation: (rule) => rule.required(),
                 }),
               ],
-              validation: (rule) => rule.required(),
             }),
           ],
+          validation: (rule) => rule.required(),
         }),
       ],
     }),

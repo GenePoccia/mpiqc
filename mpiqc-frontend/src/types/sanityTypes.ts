@@ -3,6 +3,8 @@ import { type SanityDocument } from "next-sanity";
 interface LocalizedText {
 	en: string;
 	fr: string;
+	_key: string;
+	_type: string;
 }
 
 // content structure
@@ -10,6 +12,7 @@ export interface MagazineContent {
 	header: LocalizedText;
 	paragraph: LocalizedText;
 	subHeader: LocalizedText;
+	bulletedList?: LocalizedText[];
 	image?: string;
 	_id: string;
 }
@@ -93,7 +96,7 @@ export interface LocationSectionData {
 }
 
 export interface IndustriesSectionData {
-	industriesContent: MagazineContent;
+	magazineContent: MagazineContent;
 }
 
 export interface WhyUsSectionData {
@@ -102,7 +105,7 @@ export interface WhyUsSectionData {
 
 export interface MeetTheTeamSectionData {
 	header: LocalizedText;
-	globalLocations: TeamMember[];
+	teamMembers: MagazineContent[];
 }
 
 export interface ContactUsSectionData {

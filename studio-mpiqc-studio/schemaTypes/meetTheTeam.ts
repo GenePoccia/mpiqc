@@ -12,7 +12,21 @@ export const meetTheTeam = defineType({
     }),
     defineField({
       name: 'header',
-      type: 'string',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en',
+          title: 'English',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: 'fr',
+          title: 'French',
+          type: 'string',
+          validation: (rule) => rule.required(),
+        }),
+      ],
       validation: (rule) => rule.required(),
     }),
 

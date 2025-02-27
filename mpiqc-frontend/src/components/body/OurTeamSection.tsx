@@ -10,12 +10,21 @@ import {
 	type CarouselApi,
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { MeetTheTeamSectionData } from "@/types/sanityTypes";
+import { meetTheTeamMagazine } from "../reusable/magazines";
 
-export default function OurTeam() {
+export default function OurTeam({
+	data,
+	language,
+}: {
+	data: MeetTheTeamSectionData | null;
+	language: "en" | "fr";
+}) {
 	const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [totalItems, setTotalItems] = useState(0);
 
+	console.log(data)
 	useEffect(() => {
 		if (!carouselApi) return;
 
@@ -39,17 +48,20 @@ export default function OurTeam() {
 
 	return (
 		<section className="relative h-96 max-h-[500px] mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
+			<h1>{data?.header[language]}</h1>
 			<Carousel
 				setApi={setCarouselApi}
 				opts={{ loop: true }}
 				className="w-full max-w-7xl h-96 max-h-[500px] z-10"
 			>
 				<CarouselContent>
-					{Array.from({ length: 5 }).map((_, index) => (
+					{data?.teamMembers?.map((member, index) => (
 						<CarouselItem key={index}>
 							<Card className="bg-gray-500">
 								<CardContent className="flex items-center justify-center h-96 max-h-[500px] p-6">
-									<span className="text-4xl font-semibold">{index + 1}</span>
+									<span className="text-4xl font-semibold">
+										{member && meetTheTeamMagazine(member, language)}
+									</span>
 								</CardContent>
 							</Card>
 						</CarouselItem>

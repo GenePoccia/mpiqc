@@ -34,12 +34,6 @@ export interface Location {
 	_key: string;
 }
 
-interface TeamMember {
-	header: LocalizedText;
-	paragraph: LocalizedText;
-	subHeader: LocalizedText;
-}
-
 export interface Navigation extends SanityDocument {
 	title: string;
 	logo: {

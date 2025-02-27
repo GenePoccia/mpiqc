@@ -47,8 +47,10 @@ export default function OurTeam({
 	};
 
 	return (
+		<>
+		<h1>{data?.header[language]}</h1>
 		<section className="relative h-96 max-h-[500px] mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
-			<h1>{data?.header[language]}</h1>
+
 			<Carousel
 				setApi={setCarouselApi}
 				opts={{ loop: true }}
@@ -70,7 +72,7 @@ export default function OurTeam({
 			</Carousel>
 
 			{/* Navigation Arrows */}
-			<div className="absolute inset-0 z-20 flex items-center justify-between px-3 pointer-events-none">
+			<div className="absolute inset-0 z-20 flex items-center justify-between pointer-events-none">
 				<Button
 					onClick={() => scrollToIndex(currentIndex - 1)}
 					className="pointer-events-auto w-32 h-32 bg-transparent shadow-none hover:bg-transparent flex items-center justify-center flex-shrink-0"
@@ -104,5 +106,6 @@ export default function OurTeam({
 				))}
 			</div>
 		</section>
+		</>
 	);
 }

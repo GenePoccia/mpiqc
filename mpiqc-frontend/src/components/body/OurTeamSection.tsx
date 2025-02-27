@@ -24,7 +24,6 @@ export default function OurTeam({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
-  console.log(data);
   useEffect(() => {
     if (!carouselApi) return;
 

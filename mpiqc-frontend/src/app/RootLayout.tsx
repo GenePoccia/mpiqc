@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
 	return (
 		<Provider>
-			<div className="container">
+			<div>
 				<Header />
 				{children}
 				<Footer />

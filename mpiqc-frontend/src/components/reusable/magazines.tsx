@@ -79,7 +79,6 @@ export const meetTheTeamMagazine = (
 ) => {
 	const list = magazine?.bulletedList;
 
-	console.log(magazine);
 	return (
 		<div className="grid lg:grid-cols-2 items-stretch h-full gap-24">
 			<div className="h-full">

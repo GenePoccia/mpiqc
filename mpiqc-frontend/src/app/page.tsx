@@ -30,9 +30,8 @@ const Home = () => {
 	} = 
 		useGlobalContext();
 
-		console.log(meetTheTeamData)
 	return (
-		<main>
+		<>
 			{welcomeData && <WelcomeSection data={welcomeData} language={language}/>}
 			{whoWeAreData && <WhoWeAreSection data={whoWeAreData} language={language}/> }
 			{ourCapabilitiesData && <EMSServices data={ourCapabilitiesData} language={language}/>}
@@ -42,7 +41,7 @@ const Home = () => {
 			{whyUsData && <WhyChooseUs data={whyUsData} language={language}/>}
 			{meetTheTeamData && <OurTeam data={meetTheTeamData} language={language}/>}
 			{contactUsData && <Contact data={contactUsData} language={language} /> }
-		</main>
+		</>
 	);
 }
 

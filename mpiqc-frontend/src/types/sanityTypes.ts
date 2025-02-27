@@ -7,6 +7,15 @@ interface LocalizedText {
 	_type: string;
 }
 
+export interface SanityImage {
+	_type: "image";
+	asset: {
+		_type: "reference";
+		_ref: string;
+	};
+	alt?: string;
+}
+
 // content structure
 export interface MagazineContent {
 	header: LocalizedText;
@@ -63,6 +72,7 @@ export interface WelcomeSectionData {
 	header: LocalizedText;
 	paragraph: LocalizedText;
 	title: string;
+	backgroundImage: SanityImage;
 }
 
 export interface WhoWeAreSectionData {

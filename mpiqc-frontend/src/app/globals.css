@@ -19,19 +19,19 @@ body {
   background-color: var(--background);
   color: var(--text-color); 
   font-family: var(--font-geist-sans);
-
+  width: 100%; /* Full width */
     /* Grid Centering */
     display: grid;
     place-items: center; /* Centers both horizontally and vertically */
     min-height: 100vh;
     text-align: center;
-    margin: auto;
-    padding-left: 12px;
-    padding-right: 12px;
+
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 1440px;
+  margin: 0 auto; /* Centers the content horizontally */
 }
 
 h1 {

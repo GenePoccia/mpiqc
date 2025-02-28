@@ -30,9 +30,10 @@ export interface Service {
 	service: LocalizedText;
 }
 
-interface Certification {
-	certificationImage: string;
+export interface Certification {
+	image: SanityImage;
 	alt: string;
+	_key: string;
 }
 
 export interface Location {
@@ -88,7 +89,7 @@ export interface CertificationSectionData {
 	header: LocalizedText;
 	description: LocalizedText;
 	title: LocalizedText;
-	certifications: Certification[];
+	certifications: SanityImage[];
 }
 
 export interface LocationSectionData {

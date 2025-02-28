@@ -27,7 +27,7 @@ const Header = () => {
 	};
 
 	return (
-		<div className="w-full px-4 flex justify-between items-center py-4">
+		<div className="max-w-[1440px] mx-auto w-full px-4 flex justify-between items-center py-4">
 			<div>Logo here</div>
 			<div className="flex space-x-4">
 				{categories.map((category, index) =>

@@ -22,7 +22,7 @@ export interface MagazineContent {
 	paragraph: LocalizedText;
 	subHeader: LocalizedText;
 	bulletedList?: LocalizedText[];
-	image?: string;
+	image?: SanityImage;
 	_id: string;
 }
 export interface Service {

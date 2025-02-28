@@ -11,42 +11,9 @@ export const ourCapabilities = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      type: 'object',
-      name: 'header',
-      title: 'Header',
-      fields: [
-        defineField({
-          name: 'en',
-          title: 'English',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-        defineField({
-          name: 'fr',
-          title: 'French',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-      ],
-    }),
-    defineField({
-      type: 'object',
-      name: 'subHeader',
-      title: 'subHeader',
-      fields: [
-        defineField({
-          name: 'en',
-          title: 'English',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-        defineField({
-          name: 'fr',
-          title: 'French',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-      ],
+      name: 'magazineContent',
+      title: 'Magazine Content',
+      type: 'magazine',
     }),
     defineField({
       type: 'array',

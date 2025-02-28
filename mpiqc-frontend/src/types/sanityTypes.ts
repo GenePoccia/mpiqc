@@ -80,8 +80,7 @@ export interface WhoWeAreSectionData {
 }
 
 export interface OurCapabilitiesSectionData {
-	header: LocalizedText;
-	subHeader: LocalizedText;
+	magazineContent: MagazineContent;
 	services: Service[];
 }
 

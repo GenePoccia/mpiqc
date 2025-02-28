@@ -28,6 +28,7 @@ body {
 
 }
 
+
 html {
   scroll-behavior: smooth;
   margin: 0 auto; /* Centers the content horizontally */
@@ -45,6 +46,7 @@ h2 {
 h3 {
   font-size: var(--small-text)
 }
+
 
 span {
   font-size: var(--extra-small-text)

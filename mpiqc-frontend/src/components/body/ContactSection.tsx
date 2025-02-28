@@ -13,7 +13,6 @@ export default function Contact({
 	data: ContactUsSectionData | null;
 	language: "en" | "fr";
 }) {
-	console.log(data);
 	return (
 		<section>
 			<div>

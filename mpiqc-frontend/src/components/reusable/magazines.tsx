@@ -12,11 +12,10 @@ export const imageFirstMagazine = (
 	language: "en" | "fr"
 ) => {
 	const list = magazine?.bulletedList;
-
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full ">
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16">
 			<div className="h-full">
 				{magazine?.image && (
 					<img
@@ -30,7 +29,7 @@ export const imageFirstMagazine = (
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>{magazine?.subHeader?.[language]}</h3>
 				<h2 className="my-6">{magazine?.header?.[language]}</h2>
-				<p className="mb-8 max-w-xl text-muted-foreground">
+				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>
 				{list && (
@@ -50,13 +49,13 @@ export const textFirstMagazine = (
 	language: "en" | "fr"
 ) => {
 	const list = magazine?.bulletedList;
-
+	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full ">
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-12">
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>{magazine?.subHeader?.[language]}</h3>
 				<h2 className="my-6">{magazine?.header?.[language]}</h2>
-				<p className="mb-8 max-w-xl text-muted-foreground">
+				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>
 				{list && (
@@ -68,14 +67,13 @@ export const textFirstMagazine = (
 				)}
 			</div>
 			<div className="h-full">
-				{/* 
- 				TODO: Put Image
- 				<img
- 					src={magazine.image.src}
- 					alt={magazine.image.alt}
- 					className="w-full h-full rounded-md object-cover"
- 				/> */}
-				image placeholder
+				{magazine?.image && (
+					<img
+						src={imageUrl}
+						alt={magazine?.image?.alt}
+						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
+					/>
+				)}
 			</div>
 		</div>
 	);

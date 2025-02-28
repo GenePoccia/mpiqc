@@ -15,7 +15,7 @@ export default function WhoAreWe({
 	return (
 		<section
 			id="story"
-			className="min-h-[85vh] flex items-center justify-center"
+			className="min-h-[50vh] flex items-center justify-center"
 		>
 			{magazineContent && imageFirstMagazine(magazineContent, language)}
 		</section>

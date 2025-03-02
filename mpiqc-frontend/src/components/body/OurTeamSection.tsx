@@ -100,7 +100,7 @@ export default function OurTeam({
               </Carousel>
 
               {/* Navigation Dots */}
-              <div className="flex justify-center space-x-2 mt-4">
+              <div className="flex justify-center space-x-2 mt-4 mb-0 sm:mb-4">
                 {Array.from({ length: totalItems }).map((_, index) => (
                   <button
                     key={index}
@@ -115,7 +115,7 @@ export default function OurTeam({
         </div>
 
         {/* Navigation Arrows */}
-        <div className="absolute inset-x-2 bottom-110 z-20 flex items-center justify-between pointer-events-none">
+        <div className="absolute inset-x-2 bottom-110 z-20 flex max-w-[1440px] w-full mx-auto pointer-events-none justify-between">
   <Button
     onClick={() => scrollToIndex(currentIndex - 1)}
     className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"
@@ -129,6 +129,7 @@ export default function OurTeam({
     <img src="/images/arrow-right.svg" alt="arrow-right" />
   </Button>
 </div>
+
       </section>
     </>
   );

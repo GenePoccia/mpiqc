@@ -23,8 +23,6 @@ export default function EMSServices({
 	data: OurCapabilitiesSectionData | null;
 	language: "en" | "fr";
 }) {
-
-	console.log(data)
 	const magazineContent = data?.magazineContent;
 	const services = data?.services
 
@@ -40,8 +38,9 @@ export default function EMSServices({
 			id="story"
 			className="min-h-[50vh] flex items-center justify-center"
 		>
-			<div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
-			{services?.map((ele, index) => renderService(ele, language, index))}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
+
+{services?.map((ele, index) => renderService(ele, language, index))}
 			</div>
 			</section>
 		</>

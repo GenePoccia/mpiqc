@@ -84,34 +84,26 @@ export const meetTheTeamMagazine = (
 	magazine: MagazineContent,
 	language: "en" | "fr"
 ) => {
-	const list = magazine?.bulletedList;
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full ">
+		<div className="flex flex-col lg:flex-row gap-2 lg:gap-24 items-center justify-center h-full">
 			<div className="h-full">
 				{magazine?.image && (
 					<img
 						src={imageUrl}
 						alt={magazine?.image?.alt}
-						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
+						className="w-full h-full max-w-[150px] md:max-w-[200px] h-auto max-h-[150px]  md:max-h-[200px] rounded-3xl object-cover"
 					/>
 				)}
 			</div>
 
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
-				<h2 className="my-6">{magazine?.header?.[language]}</h2>
-				<h3>{magazine?.subHeader?.[language]}</h3>
-				<p className="mb-8 max-w-xl text-muted-foreground">
+				<h2 className="mb-4">{magazine?.header?.[language]}</h2>
+				<h3 className="mb-4">{magazine?.subHeader?.[language]}</h3>
+				<p className="max-w-xl text-muted-foreground text-rgba(179, 179, 179, 1)">
 					{magazine?.paragraph?.[language]}
 				</p>
-				{list && (
-					<ul className="list-disc">
-						{list.map((ele) => (
-							<li key={ele._key}>{ele[language]}</li>
-						))}
-					</ul>
-				)}
 			</div>
 		</div>
 	);

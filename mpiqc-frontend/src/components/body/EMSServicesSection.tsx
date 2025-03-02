@@ -30,7 +30,7 @@ export default function EMSServices({
 		<>
 		<section
 			id="story"
-			className="min-h-[50vh] flex items-center  mt-24 lg:nt-0 justify-center"
+			className="min-h-[50vh] flex items-center lg:nt-0 justify-center"
 		>
 			{magazineContent && textFirstMagazine(magazineContent, language)}
 		</section>

@@ -10,7 +10,10 @@ export default function WhyChooseUs({
 	language: "en" | "fr";
 }) {
 	return (
-		<section id="choose-us">
+		<section
+			id="choose-us"
+			className="min-h-[50vh] flex items-center lg:nt-0 justify-center"
+		>
 			{data && textFirstMagazine(data?.magazineContent, language)}
 		</section>
 	);

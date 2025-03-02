@@ -13,11 +13,9 @@ export default function IndustriesSection({
 	return (
 		<section
 			id="industries"
-			className=" p-6 flex items-center"
+			className="min-h-[50vh] flex items-center mt-24 lg:nt-0 justify-center"
 		>
-			<div className="flex flex-col">
-				{industry && imageFirstMagazine(industry, language)}
-			</div>
+			{industry && imageFirstMagazine(industry, language)}
 		</section>
 	);
 }

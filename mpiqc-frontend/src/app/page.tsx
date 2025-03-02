@@ -39,7 +39,7 @@ const Home = () => {
 			{locationsData && <GlobalLocations data={locationsData} language={language}/>}
 			{industriesData && <IndustriesSection data={industriesData} language={language}/>}
 			{whyUsData && <WhyChooseUs data={whyUsData} language={language}/>}
-			{meetTheTeamData && <OurTeam data={meetTheTeamData} language={language}/>}
+			{/* {meetTheTeamData && <OurTeam data={meetTheTeamData} language={language}/>} */}
 			{contactUsData && <Contact data={contactUsData} language={language} /> }
 		</>
 	);

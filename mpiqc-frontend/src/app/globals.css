@@ -20,9 +20,6 @@ body {
   color: var(--text-color); 
   font-family: var(--font-geist-sans);
   width: 100%; /* Full width */
-    /* Grid Centering */
-    display: grid;
-    place-items: center; /* Centers both horizontally and vertically */
     min-height: 100vh;
     text-align: center;
 
@@ -31,7 +28,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-  margin: 0 auto; /* Centers the content horizontally */
 }
 
 h1 {

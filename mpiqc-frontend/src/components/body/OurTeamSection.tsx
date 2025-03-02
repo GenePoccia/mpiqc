@@ -115,7 +115,7 @@ export default function OurTeam({
         </div>
 
         {/* Navigation Arrows */}
-        <div className="absolute inset-x-2 bottom-110 z-20 flex max-w-[1440px] w-full mx-auto pointer-events-none justify-between">
+        <div className="absolute inset-x-0 bottom-110 z-20 flex max-w-[1440px] w-full mx-auto pointer-events-none justify-between">
   <Button
     onClick={() => scrollToIndex(currentIndex - 1)}
     className="pointer-events-auto rounded-full w-32 h-32 p-0 bg-transparent shadow-none hover:bg-transparent"

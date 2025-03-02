@@ -101,7 +101,7 @@ export const meetTheTeamMagazine = (
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h2 className="mb-4">{magazine?.header?.[language]}</h2>
 				<h3 className="mb-4">{magazine?.subHeader?.[language]}</h3>
-				<p className="max-w-xl text-muted-foreground text-rgba(179, 179, 179, 1)">
+				<p className="max-w-md text-muted-foreground text-rgba(179, 179, 179, 1)">
 					{magazine?.paragraph?.[language]}
 				</p>
 			</div>

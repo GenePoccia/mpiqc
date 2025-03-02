@@ -43,7 +43,7 @@ export default function Certifications({
 	return (
 		<section
 			id="certifications"
-			className="flex flex-col my-24 text-center mx-80"
+			className="flex flex-col my-24 text-center mx-auto"
 		>
 			<h2 className="mb-4 font-semibold">{header}</h2>
 			<p className="mx-auto w-3xl">

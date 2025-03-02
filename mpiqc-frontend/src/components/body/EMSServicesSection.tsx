@@ -32,15 +32,18 @@ export default function EMSServices({
 		<>
 		<section
 			id="story"
-			className="min-h-[30vh] flex flex-col items-center justify-center max-w-[1440px] text-pretty"
+			className="min-h-[50vh] flex items-center  mt-24 lg:nt-0 justify-center"
 		>
 			{magazineContent && textFirstMagazine(magazineContent, language)}
-			<div className="flex flex-row max-w-[1048px] gap-12 mt-24 mx-12">
+		</section>
+		<section
+			id="story"
+			className="min-h-[50vh] flex items-center justify-center"
+		>
+			<div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
 			{services?.map((ele, index) => renderService(ele, language, index))}
 			</div>
-
-		</section>
-
+			</section>
 		</>
 	);
 }

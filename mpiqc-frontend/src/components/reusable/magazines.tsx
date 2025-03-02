@@ -52,7 +52,7 @@ export const textFirstMagazine = (
 	const list = magazine?.bulletedList;
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full gap-12">
+		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12">
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>{magazine?.subHeader?.[language]}</h3>
 				<h2 className="my-6">{magazine?.header?.[language]}</h2>

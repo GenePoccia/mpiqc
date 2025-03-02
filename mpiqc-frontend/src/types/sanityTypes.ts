@@ -97,6 +97,7 @@ export interface LocationSectionData {
 	globalLocations: Location[];
 	header: LocalizedText;
 	subHeader: LocalizedText;
+	backgroundImage: SanityImage;
 }
 
 export interface IndustriesSectionData {

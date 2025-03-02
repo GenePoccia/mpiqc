@@ -11,6 +11,21 @@ export const locations = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'backgroundImage',
+      type: 'image',
+      title: 'Background Image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+      ],
+    }),
+    defineField({
       type: 'object',
       name: 'header',
       title: 'Header',

@@ -10,8 +10,18 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { MeetTheTeamSectionData } from "@/types/sanityTypes";
+import { MeetTheTeamSectionData, SanityImage } from "@/types/sanityTypes";
 import { meetTheTeamMagazine } from "../reusable/magazines";
+
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/sanity/client";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: SanityImage) {
+  return builder.image(source);
+}
+
 
 export default function OurTeam({
   data,
@@ -45,10 +55,20 @@ export default function OurTeam({
     carouselApi?.scrollTo(index);
   };
 
+	const imageUrl = data?.backgroundImage
+		? urlFor(data.backgroundImage).url()
+		: "";
+
   return (
     <>
       <h1>{data?.header[language]}</h1>
-      <section className="relative h-96 max-h-[500px] mx-auto mt-5 max-w-7xl lg:mt-6 mb-12">
+      <section 			
+            id="meet-the-team"
+            className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat"
+      			style={{
+              backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
+            }}
+      >
         <Carousel
           setApi={setCarouselApi}
           opts={{ loop: true }}
@@ -86,7 +106,7 @@ export default function OurTeam({
         </div>
 
         {/* Navigation Dots */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-20">
           {Array.from({ length: totalItems }).map((_, index) => (
             <button
               key={index}

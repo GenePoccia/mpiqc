@@ -85,18 +85,18 @@ export const meetTheTeamMagazine = (
 	language: "en" | "fr"
 ) => {
 	const list = magazine?.bulletedList;
+	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
 		<div className="grid lg:grid-cols-2 items-stretch h-full ">
 			<div className="h-full">
-				{/* 
- 				TODO: Put Image
- 				<img
- 					src={magazine.image.src}
- 					alt={magazine.image.alt}
- 					className="w-full h-full rounded-md object-cover"
- 				/> */}{" "}
-				image placeholder
+				{magazine?.image && (
+					<img
+						src={imageUrl}
+						alt={magazine?.image?.alt}
+						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
+					/>
+				)}
 			</div>
 
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">

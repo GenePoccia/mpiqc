@@ -110,6 +110,7 @@ export interface WhyUsSectionData {
 
 export interface MeetTheTeamSectionData {
 	header: LocalizedText;
+	backgroundImage: SanityImage;
 	teamMembers: MagazineContent[];
 }
 

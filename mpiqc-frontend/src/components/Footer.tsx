@@ -1,70 +1,47 @@
-interface MenuItem {
-	links: {
-		text: string;
-		url: string;
-	}[];
-}
+import React from "react";
+import Image from "next/image";
 
-interface FooterProps {
-	logo?: {
-		url: string;
-		src: string;
-		alt: string;
-		title: string;
-	};
-	tagline?: string;
-	menuItems?: MenuItem[];
-	copyright?: string;
-}
-
-const Footer = ({
-	menuItems = [
-		{
-			links: [
-				{ text: "info@MPIQC.com", url: "" },
-				{ text: "+1-855-466-7472", url: "" },
-				{ text: "social media links", url: "" },
-			],
-		},
-	],
-	copyright = "© 2025 Copyright. All rights reserved.",
-}: FooterProps) => {
+const Footer = () => {
 	return (
-		<section className="py-32">
-			<div className="container mx-auto px-4">
-				<footer>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center items-center text-center md:text-left">
-						<div className="flex flex-col items-center md:items-start mb-8 lg:mb-0">
-							<div className="flex items-center gap-2">logo here</div>
-						</div>
-						{menuItems.map((section, sectionIdx) => (
-							<div
-								key={sectionIdx}
-								className={`flex flex-col ${
-									sectionIdx === menuItems.length - 1
-										? "md:items-end md:text-right items-center text-center"
-										: "items-center md:items-start"
-								}`}
-							>
-								<ul className="space-y-4 text-muted-foreground">
-									{section.links.map((link, linkIdx) => (
-										<li
-											key={linkIdx}
-											className="font-medium hover:text-primary"
-										>
-											<a href={link.url}>{link.text}</a>
-										</li>
-									))}
-								</ul>
-							</div>
-						))}
+		<footer className="w-full bg-white py-8 px-4 md:px-8">
+			<div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+				{/* Left side - Logo */}
+				<div className="mb-6 md:mb-0">
+					<Image
+						src="/logo.png"
+						alt="MPIQC Logo"
+						width={180}
+						height={60}
+						className="h-auto"
+					/>
+				</div>
+
+				{/* Right side - Contact info and circles */}
+				<div className="flex flex-col items-center md:items-end space-y-3">
+					{/* Email */}
+					<a
+						href="mailto:info@mpiqc.com"
+						className="text-gray-800 hover:text-blue-600 transition-colors"
+					>
+						info@mpiqc.com
+					</a>
+
+					{/* Phone */}
+					<a
+						href="tel:+18554667472"
+						className="text-gray-800 hover:text-blue-600 transition-colors"
+					>
+						+1-855-466-7472
+					</a>
+
+					{/* Three small circles in a row */}
+					<div className="flex space-x-2">
+						<div>social media</div>
 					</div>
-					<div className="mt-24 flex flex-col md:flex-row justify-center items-center text-center gap-4 border-t pt-8 text-sm font-medium text-muted-foreground">
-						<p className="w-full text-center">{copyright}</p>
-					</div>
-				</footer>
+				</div>
 			</div>
-		</section>
+			<div>© 2025 MPIQC</div>
+		</footer>
 	);
 };
 

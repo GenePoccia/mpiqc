@@ -30,12 +30,6 @@ export interface Service {
 	service: LocalizedText;
 }
 
-export interface Certification {
-	image: SanityImage;
-	alt: string;
-	_key: string;
-}
-
 export interface Location {
 	address: LocalizedText;
 	city: LocalizedText;

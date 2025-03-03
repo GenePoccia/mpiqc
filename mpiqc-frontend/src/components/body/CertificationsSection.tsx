@@ -1,4 +1,4 @@
-import { CertificationSectionData, Certification, SanityImage } from "@/types/sanityTypes";
+import { CertificationSectionData, SanityImage } from "@/types/sanityTypes";
 import "../../app/globals.css";
 
 import imageUrlBuilder from "@sanity/image-url";

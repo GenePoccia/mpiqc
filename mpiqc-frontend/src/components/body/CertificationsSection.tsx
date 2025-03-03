@@ -40,28 +40,31 @@ export default function Certifications({
 
 	const certifications = data?.certifications
 
-	// Calculate if we need to center the last item
+	// Calculate if we need to center the last item for medium and large screens
 	const hasOddItems = certifications && (certifications.length % 2 === 1);
-	
+
 	return (
 		<section
 			id="certifications"
 			className="flex flex-col items-center my-24 text-center mx-auto"
 		>
-			<h2 className="mb-4 font-semibold">{header}</h2>
-			<p className="mx-auto w-s lg:w-xl">
-				{description}
-			</p>
-			<div className="grid grid-cols-2 lg:grid-cols-3 grid-flow-row gap-16 lg:gap-24 mt-12">
+			<div className="w-[95%]">
+
+				<h2 className="mb-4 font-semibold">{header}</h2>
+				<p className="mx-auto w-s lg:w-xl">
+					{description}
+				</p>
+			</div>
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-8 md:gap-16 lg:gap-24 mt-12">
 				{certifications?.map((certification, index) => {
-					// Apply special class to the last item if we have an odd count
+					// Apply special class to the last item if we have an odd count, but only on md screens
 					const isLastItem = index === certifications.length - 1;
 					const centerLastItem = hasOddItems && isLastItem;
-					
+
 					return (
-						<div 
+						<div
 							key={index}
-							className={`${centerLastItem ? 'col-span-2 lg:col-span-1' : ''}`}
+							className={`${centerLastItem ? 'md:col-span-2 lg:col-span-1' : ''}`}
 						>
 							{renderCertification(certification, index)}
 						</div>

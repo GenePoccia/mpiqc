@@ -68,7 +68,7 @@ export default function GlobalLocations({
 					backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 				}}
 			>
-				<div className="text-left w-sm pt-24 ml-16">
+				<div className="text-left w-[70%] sm:w-md pt-24 ml-16 ">
 					<h2 className="mb-2">{subHeader}</h2>
 					<h1 className="mb-4">{header}</h1>
 					<p>{description}</p>

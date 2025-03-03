@@ -11,7 +11,6 @@ export const imageFirstMagazine = (
 	magazine: MagazineContent,
 	language: "en" | "fr"
 ) => {
-	console.log(magazine);
 	const list = magazine?.bulletedList;
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 

@@ -117,5 +117,6 @@ export interface MeetTheTeamSectionData {
 export interface ContactUsSectionData {
 	paragraph: LocalizedText;
 	header: LocalizedText;
+	backgroundImage: SanityImage;
 	subHeader: LocalizedText;
 }

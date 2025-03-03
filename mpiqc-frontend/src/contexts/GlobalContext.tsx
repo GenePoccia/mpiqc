@@ -36,6 +36,7 @@ import {
 	WhyUsSectionData,
 	MeetTheTeamSectionData,
 	ContactUsSectionData,
+	SanityImage,
 } from "../types/sanityTypes";
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -46,6 +47,7 @@ interface ProviderProps {
 
 export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
+	const [headerLogo, setHeaderLogo] = useState<SanityImage | null>(null);
 	const [language, setLanguage] = useState<"en" | "fr">("en");
 	const [welcomeData, setWelcomeData] = useState<WelcomeSectionData | null>(
 		null
@@ -107,6 +109,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				]);
 
 				setCategories(categoriesResult[0]?.navigationCategories || []);
+				setHeaderLogo(categoriesResult[0]?.logo || []);
 				setWelcomeData(welcomePage[0]);
 				setWhoWeAreData(whoWeAre[0]);
 				setOurCapabilitiesData(ourCapabilities[0]);
@@ -126,6 +129,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 
 	const value = {
 		categories,
+		headerLogo,
 		language,
 		setLanguage,
 		welcomeData,

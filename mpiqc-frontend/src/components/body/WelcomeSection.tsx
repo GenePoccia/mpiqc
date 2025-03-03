@@ -1,3 +1,4 @@
+import Header from "../Header";
 import { WelcomeSectionData, SanityImage } from "@/types/sanityTypes";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
@@ -30,7 +31,7 @@ export default function WelcomeSection({
 				backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 			}}
 		>
-			{/* Centered content inside max-width */}
+			<Header />
 			<div className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[1440px] w-[90%] sm:w-[70%] p-4  rounded-lg text-left">
 				<h1 className="text-4xl font-bold sm:text-3xl text-white mb-4">
 					{headerText}

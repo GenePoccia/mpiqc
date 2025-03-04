@@ -7,3 +7,4 @@ export { default as OurTeam } from "./OurTeamSection";
 export { default as WelcomeSection } from "./WelcomeSection";
 export { default as WhoWeAreSection } from "./WhoWeAreSection";
 export { default as WhyChooseUs } from "./WhyChooseUsSection";
+export { default as Footer } from "./Footer";

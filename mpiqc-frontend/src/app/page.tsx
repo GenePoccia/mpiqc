@@ -12,6 +12,7 @@ import {
 	WelcomeSection,
 	WhoWeAreSection,
 	WhyChooseUs,
+	Footer
 } from "../components/body";
 import { useGlobalContext } from "../contexts/GlobalContext";
 
@@ -26,7 +27,8 @@ const Home = () => {
 		industriesData,
 		whyUsData,
 		meetTheTeamData,
-		contactUsData 
+		contactUsData, 
+		footerData
 	} = 
 		useGlobalContext();
 
@@ -41,6 +43,7 @@ const Home = () => {
 			{whyUsData && <WhyChooseUs data={whyUsData} language={language}/>}
 			{meetTheTeamData && <OurTeam data={meetTheTeamData} language={language}/>}
 			{contactUsData && <Contact data={contactUsData} language={language} /> }
+			{footerData && <Footer data={footerData} language={language} /> }
 		</>
 	);
 }

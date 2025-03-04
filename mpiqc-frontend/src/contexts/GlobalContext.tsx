@@ -23,6 +23,7 @@ import {
 	WHY_US_QUERY,
 	MEET_THE_TEAM_QUERY,
 	CONTACT_US_QUERY,
+	FOOTER_QUERY,
 } from "../lib/sanityQueries";
 import { GlobalContextType } from "../types/contextTypes";
 import {
@@ -36,6 +37,7 @@ import {
 	WhyUsSectionData,
 	MeetTheTeamSectionData,
 	ContactUsSectionData,
+	FooterData,
 	SanityImage,
 } from "../types/sanityTypes";
 
@@ -68,6 +70,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		useState<MeetTheTeamSectionData | null>(null);
 	const [contactUsData, setContactUsData] =
 		useState<ContactUsSectionData | null>(null);
+	const [footerData, setFooterData] = useState<FooterData | null>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -83,6 +86,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 					whyUs,
 					meetTheTeam,
 					contactUs,
+					footer,
 				] = await Promise.all([
 					client.fetch<SanityDocument[]>(NAVIGATION_QUERY, {}, options),
 					client.fetch<WelcomeSectionData[]>(WELCOME_QUERY, {}, options),
@@ -106,6 +110,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 						options
 					),
 					client.fetch<ContactUsSectionData[]>(CONTACT_US_QUERY, {}, options),
+					client.fetch<FooterData[]>(FOOTER_QUERY, {}, options),
 				]);
 
 				setCategories(categoriesResult[0]?.navigationCategories || []);
@@ -119,6 +124,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				setWhyUsData(whyUs[0]);
 				setMeetTheTeamData(meetTheTeam[0]);
 				setContactUsData(contactUs[0]);
+				setFooterData(footer[0]);
 			} catch (error) {
 				console.error("Error fetching data:", error);
 			}
@@ -141,6 +147,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		whyUsData,
 		meetTheTeamData,
 		contactUsData,
+		footerData,
 	};
 
 	return (

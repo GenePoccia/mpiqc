@@ -10,3 +10,4 @@ export const INDUSTRIES_QUERY = createQuery("industries");
 export const WHY_US_QUERY = createQuery("whyUs");
 export const MEET_THE_TEAM_QUERY = createQuery("meetTheTeam");
 export const CONTACT_US_QUERY = createQuery("contactUs");
+export const FOOTER_QUERY = createQuery("footer");

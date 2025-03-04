@@ -9,6 +9,7 @@ import {industries} from './industries'
 import {whyUs} from './whyUs'
 import {meetTheTeam} from './meetTheTeam'
 import {contactUs} from './contactUs'
+import {footer} from './footer'
 
 export const schemaTypes = [
   //pages
@@ -22,6 +23,7 @@ export const schemaTypes = [
   whyUs,
   meetTheTeam,
   contactUs,
+  footer,
   //reusable
   magazine,
 ]

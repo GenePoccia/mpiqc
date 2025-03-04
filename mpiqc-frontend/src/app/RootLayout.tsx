@@ -1,6 +1,4 @@
 "use client";
-
-import Footer from "../components/Footer";
 import { Provider } from "../contexts/GlobalContext";
 
 export default function RootLayout({
@@ -10,10 +8,7 @@ export default function RootLayout({
 }) {
 	return (
 		<Provider>
-			<div>
-				{children}
-				<Footer />
-			</div>
+			<div>{children}</div>
 		</Provider>
 	);
 }

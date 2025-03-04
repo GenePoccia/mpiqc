@@ -22,6 +22,14 @@ export interface IndustrySpecificData {
 	_key: string;
 }
 
+export interface SocialMedia {
+	image: SanityImage;
+	link: string;
+	alt: string;
+	_id: string;
+	_key: string;
+}
+
 // content structure
 export interface MagazineContent {
 	header: LocalizedText;
@@ -120,4 +128,14 @@ export interface ContactUsSectionData {
 	header: LocalizedText;
 	backgroundImage: SanityImage;
 	subHeader: LocalizedText;
+}
+
+export interface FooterData {
+	_id: string;
+	title: string;
+	logo: SanityImage;
+	email: string;
+	phone: string;
+	socialMedia: SocialMedia[];
+	copyright: LocalizedText;
 }

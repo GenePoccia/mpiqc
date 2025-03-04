@@ -9,6 +9,7 @@ import {
 	MeetTheTeamSectionData,
 	ContactUsSectionData,
 	IndustriesSectionData,
+	FooterData,
 	SanityImage,
 } from "./sanityTypes";
 import { Dispatch, SetStateAction } from "react";
@@ -27,4 +28,5 @@ export interface GlobalContextType {
 	whyUsData: WhyUsSectionData | null;
 	meetTheTeamData: MeetTheTeamSectionData | null;
 	contactUsData: ContactUsSectionData | null;
+	footerData: FooterData | null;
 }

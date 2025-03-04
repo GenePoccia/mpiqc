@@ -41,7 +41,7 @@ const Footer = ({
 
 	return (
 		<section className="w-full bg-white py-8 px-4 md:px-8">
-			<div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+			<div className="container mx-auto mb-10 flex flex-col md:flex-row items-center justify-between">
 				<div className="mb-6 md:mb-0">
 					<img
 						src={imageUrl}
@@ -50,7 +50,6 @@ const Footer = ({
 					/>
 				</div>
 
-				{/* Right side - Contact info and circles */}
 				<div className="flex flex-col items-center md:items-end space-y-3">
 					{/* Email */}
 					<a
@@ -61,10 +60,7 @@ const Footer = ({
 					</a>
 
 					{/* Phone */}
-					<a
-						href="tel:+18554667472"
-						className="text-gray-800 hover:text-blue-600 transition-colors"
-					>
+					<a className="text-gray-800 hover:text-blue-600 transition-colors">
 						{data?.phone}
 					</a>
 
@@ -74,7 +70,9 @@ const Footer = ({
 					</div>
 				</div>
 			</div>
-			<div>{data?.copyright[language]}</div>
+			<div className="w-[50%] mx-auto border-t border-gray-300 my-4 pt-4">
+				{data?.copyright[language]}
+			</div>
 		</section>
 	);
 };

@@ -88,7 +88,7 @@ export default function OurTeam({
                   {data?.teamMembers?.map((member, index) => (
                     <CarouselItem key={index}>
                       <Card className="border-none">
-                        <CardContent className="flex items-center justify-center h-96 max-h-[500px] mx-12">
+                        <CardContent className="px-0 flex items-center justify-center h-96 max-h-[500px] mx-12 min-h-full">
                           <span className="text-4xl font-semibold">
                             {member && meetTheTeamMagazine(member, language)}
                           </span>

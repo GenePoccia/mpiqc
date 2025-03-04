@@ -15,6 +15,12 @@ export interface SanityImage {
 	};
 	alt?: string;
 }
+export interface IndustrySpecificData {
+	image: SanityImage;
+	header: LocalizedText;
+	description: LocalizedText;
+	_key: string;
+}
 
 // content structure
 export interface MagazineContent {
@@ -96,6 +102,7 @@ export interface LocationSectionData {
 
 export interface IndustriesSectionData {
 	magazineContent: MagazineContent;
+	industriesList: IndustrySpecificData[];
 }
 
 export interface WhyUsSectionData {

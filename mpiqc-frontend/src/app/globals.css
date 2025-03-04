@@ -22,7 +22,8 @@ body {
   width: 100%; /* Full width */
     min-height: 100vh;
     text-align: center;
-
+  letter-spacing: -2%;
+  line-height: 22.4px
 }
 
 

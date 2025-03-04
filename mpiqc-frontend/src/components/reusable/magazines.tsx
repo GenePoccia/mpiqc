@@ -28,7 +28,7 @@ export const imageFirstMagazine = (
 
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>{magazine?.subHeader?.[language]}</h3>
-				<h2 className="my-6">{magazine?.header?.[language]}</h2>
+				<h2 className="my-8 font-medium">{magazine?.header?.[language]}</h2>
 				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>
@@ -54,7 +54,7 @@ export const textFirstMagazine = (
 		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12">
 			<div className="flex flex-col items-center text-center lg:items-start lg:text-left h-full">
 				<h3>{magazine?.subHeader?.[language]}</h3>
-				<h2 className="my-6">{magazine?.header?.[language]}</h2>
+				<h2 className="my-8 font-medium">{magazine?.header?.[language]}</h2>
 				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>

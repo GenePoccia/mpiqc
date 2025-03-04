@@ -42,7 +42,7 @@ export const industries = defineType({
         }),
         defineField({
           name: 'subHeader',
-          title: 'subHeader',
+          title: 'Subheader',
           type: 'object',
           fields: [
             defineField({
@@ -79,6 +79,65 @@ export const industries = defineType({
           ],
         }),
       ],
+    }),
+    defineField({
+      name: 'industriesList',
+      title: 'Industries List Content',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'item',
+          title: 'List Item',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: {hotspot: true},
+            }),
+            defineField({
+              name: 'header',
+              title: 'Header',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'en',
+                  title: 'English',
+                  type: 'string',
+                  validation: (rule) => rule.required(),
+                }),
+                defineField({
+                  name: 'fr',
+                  title: 'French',
+                  type: 'string',
+                  validation: (rule) => rule.required(),
+                }),
+              ],
+            }),
+            defineField({
+              name: 'description',
+              title: 'Description',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'en',
+                  title: 'English',
+                  type: 'text',
+                  validation: (rule) => rule.required(),
+                }),
+                defineField({
+                  name: 'fr',
+                  title: 'French',
+                  type: 'text',
+                  validation: (rule) => rule.required(),
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+      validation: (rule) => rule.required(),
     }),
   ],
 })

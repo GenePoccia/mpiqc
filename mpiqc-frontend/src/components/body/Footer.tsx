@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-
 import { FooterData, SanityImage, SocialMedia } from "@/types/sanityTypes";
 
 import imageUrlBuilder from "@sanity/image-url";

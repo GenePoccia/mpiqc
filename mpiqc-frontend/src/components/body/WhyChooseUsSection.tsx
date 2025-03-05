@@ -11,7 +11,7 @@ export default function WhyChooseUs({
 }) {
 	return (
 		<section
-			id="choose-us"
+			id="why-us"
 			className="min-h-[50vh] flex items-center lg:nt-0 justify-center"
 		>
 			{data && textFirstMagazine(data?.magazineContent, language)}

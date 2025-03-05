@@ -48,8 +48,6 @@ export default function IndustriesSection({
 }) {
 	const industry = data?.magazineContent;
 	const industriesArray = data?.industriesList;
-
-	console.log(industriesArray);
 	return (
 		<>
 			<section

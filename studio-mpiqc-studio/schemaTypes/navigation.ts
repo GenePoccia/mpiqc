@@ -46,6 +46,12 @@ export const navigation = defineType({
               type: 'string',
               validation: (rule) => rule.required(),
             }),
+            defineField({
+              name: 'route',
+              title: 'Route',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
           ],
         },
       ],
@@ -53,7 +59,7 @@ export const navigation = defineType({
     defineField({
       name: 'warrantyCallout',
       title: 'Warranty Callout',
-      type: 'object', // Using an object to group English & French translations
+      type: 'object',
       fields: [
         defineField({
           name: 'en',
@@ -76,7 +82,7 @@ export const navigation = defineType({
                     fields: [
                       {
                         name: 'href',
-                        type: 'url',
+                        type: 'string',
                         title: 'URL',
                       },
                     ],
@@ -86,6 +92,7 @@ export const navigation = defineType({
             },
           ],
         }),
+
         defineField({
           name: 'fr',
           title: 'French',
@@ -107,7 +114,7 @@ export const navigation = defineType({
                     fields: [
                       {
                         name: 'href',
-                        type: 'url',
+                        type: 'string',
                         title: 'URL',
                       },
                     ],

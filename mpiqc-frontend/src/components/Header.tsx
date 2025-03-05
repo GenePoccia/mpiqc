@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
+
+import { PortableText } from "@portabletext/react";
+
 import { Menu, X } from "lucide-react"; // Import icons for the mobile menu
 
 import imageUrlBuilder from "@sanity/image-url";
@@ -22,7 +25,7 @@ const renderCategory = (
 ) => (
 	<div key={`category-${index}`}>
 		<Link
-			href={`#${category[language]}`}
+			href={`#${category?.route}`}
 			scroll={true}
 		>
 			{category[language]}
@@ -31,7 +34,8 @@ const renderCategory = (
 );
 
 const Header = () => {
-	const { categories, headerLogo, language, setLanguage } = useGlobalContext();
+	const { categories, warrantyCallout, headerLogo, language, setLanguage } =
+		useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	const changeLanguage = () => {
@@ -40,9 +44,16 @@ const Header = () => {
 
 	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
 
+	console.log(warrantyCallout);
+
 	return (
 		<>
-			<div className="bg-[rgba(212,141,50,1)] h-[50px]">hello</div>
+			<div className="bg-[rgba(212,141,50,1)] h-[50px] flex justify-center items-center">
+				{warrantyCallout && (
+					<PortableText value={warrantyCallout?.[language]} />
+				)}
+			</div>
+
 			<div className="bg-transparent text-white">
 				<div className="max-w-[1440px] mx-auto w-full px-4 flex justify-between items-center py-4">
 					<img

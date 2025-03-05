@@ -1,4 +1,5 @@
 import { type SanityDocument } from "next-sanity";
+import { PortableTextBlock } from "sanity";
 
 interface LocalizedText {
 	en: string;
@@ -67,6 +68,12 @@ export interface Navigation extends SanityDocument {
 export interface CategoryInterface {
 	en: string;
 	fr: string;
+	route: string;
+}
+
+export interface WarrantyCalloutInterface {
+	en: PortableTextBlock[];
+	fr: PortableTextBlock[];
 }
 
 export interface DropdownItems {

@@ -28,6 +28,7 @@ import {
 import { GlobalContextType } from "../types/contextTypes";
 import {
 	CategoryInterface,
+	WarrantyCalloutInterface,
 	WelcomeSectionData,
 	WhoWeAreSectionData,
 	OurCapabilitiesSectionData,
@@ -49,6 +50,8 @@ interface ProviderProps {
 
 export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
+	const [warrantyCallout, setWarrantyCallout] =
+		useState<WarrantyCalloutInterface | null>(null);
 	const [headerLogo, setHeaderLogo] = useState<SanityImage | null>(null);
 	const [language, setLanguage] = useState<"en" | "fr">("en");
 	const [welcomeData, setWelcomeData] = useState<WelcomeSectionData | null>(
@@ -114,6 +117,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				]);
 
 				setCategories(categoriesResult[0]?.navigationCategories || []);
+				setWarrantyCallout(categoriesResult[0]?.warrantyCallout || []);
 				setHeaderLogo(categoriesResult[0]?.logo || []);
 				setWelcomeData(welcomePage[0]);
 				setWhoWeAreData(whoWeAre[0]);
@@ -135,6 +139,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 
 	const value = {
 		categories,
+		warrantyCallout,
 		headerLogo,
 		language,
 		setLanguage,

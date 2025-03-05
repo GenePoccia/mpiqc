@@ -3,8 +3,11 @@ import { textFirstMagazine } from "../reusable/magazines";
 
 import "../../app/globals.css";
 
-
-const renderService = (service: Service, language: 'en' | 'fr', index: number) => {
+const renderService = (
+	service: Service,
+	language: "en" | "fr",
+	index: number
+) => {
 	return (
 		<div
 			key={index}
@@ -24,24 +27,23 @@ export default function EMSServices({
 	language: "en" | "fr";
 }) {
 	const magazineContent = data?.magazineContent;
-	const services = data?.services
+	const services = data?.services;
 
 	return (
 		<>
-		<section
-			id="story"
-			className="min-h-[50vh] flex items-center lg:nt-0 justify-center"
-		>
-			{magazineContent && textFirstMagazine(magazineContent, language)}
-		</section>
-		<section
-			id="story"
-			className="min-h-[50vh] flex items-center justify-center"
-		>
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
-
-{services?.map((ele, index) => renderService(ele, language, index))}
-			</div>
+			<section
+				id="capabilities"
+				className="min-h-[50vh] flex items-center lg:nt-0 justify-center"
+			>
+				{magazineContent && textFirstMagazine(magazineContent, language)}
+			</section>
+			<section
+				id="warranty"
+				className="min-h-[50vh] flex items-center justify-center"
+			>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
+					{services?.map((ele, index) => renderService(ele, language, index))}
+				</div>
 			</section>
 		</>
 	);

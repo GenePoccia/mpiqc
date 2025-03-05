@@ -24,7 +24,10 @@ export default function Contact({
 		: "";
 
 	return (
-		<section className="flex justify-center py-24 w-full min-h-screen bg-cover bg-center bg-no-repeat">
+		<section
+			id="contact-us"
+			className="flex justify-center py-24 w-full min-h-screen bg-cover bg-center bg-no-repeat"
+		>
 			<div
 				className="flex items-center justify-center w-[90%] max-w-[1440px] min-h-screen rounded-2xl p-8"
 				style={{

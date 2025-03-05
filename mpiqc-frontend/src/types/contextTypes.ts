@@ -11,11 +11,13 @@ import {
 	IndustriesSectionData,
 	FooterData,
 	SanityImage,
+	WarrantyCalloutInterface,
 } from "./sanityTypes";
 import { Dispatch, SetStateAction } from "react";
 
 export interface GlobalContextType {
 	categories: CategoryInterface[];
+	warrantyCallout: WarrantyCalloutInterface | null;
 	headerLogo: SanityImage | null;
 	language: "en" | "fr";
 	setLanguage: Dispatch<SetStateAction<"en" | "fr">>;

@@ -15,7 +15,7 @@ export const imageFirstMagazine = (
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mb-0">
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0">
 			<div className="h-full">
 				{magazine?.image && (
 					<img
@@ -26,9 +26,11 @@ export const imageFirstMagazine = (
 				)}
 			</div>
 
-			<div className="flex flex-col items-center text-left lg:items-start lg:text-left h-full">
-				<h3>{magazine?.subHeader?.[language]}</h3>
-				<h2 className="my-8 font-medium">{magazine?.header?.[language]}</h2>
+			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
+				<h2>{magazine?.subHeader?.[language]}</h2>
+				<h1 className="my-4 max-w-sm font-medium">
+					{magazine?.header?.[language]}
+				</h1>
 				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>
@@ -52,9 +54,11 @@ export const textFirstMagazine = (
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 	return (
 		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12 mb-12 lg:mb-0">
-			<div className="flex flex-col items-center text-left lg:items-start lg:text-left h-full">
-				<h3>{magazine?.subHeader?.[language]}</h3>
-				<h2 className="my-8 font-medium">{magazine?.header?.[language]}</h2>
+			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
+				<h2>{magazine?.subHeader?.[language]}</h2>
+				<h1 className="my-4 max-w-sm font-medium">
+					{magazine?.header?.[language]}
+				</h1>
 				<p className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraph?.[language]}
 				</p>

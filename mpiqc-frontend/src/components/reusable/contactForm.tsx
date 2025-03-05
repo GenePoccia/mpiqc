@@ -13,19 +13,8 @@ export default function ContactForm({
 	data: ContactUsSectionData | null;
 	language: "en" | "fr";
 }) {
-	const [image, setImage] = useState<File | null>(null);
-
-	// Handle file selection
-	const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const file = event.target.files?.[0];
-		if (file) {
-			setImage(file);
-		}
-	};
-
 	const handleSubmit = () => {
 		window.alert("hi");
-		console.log(image);
 	};
 
 	return (

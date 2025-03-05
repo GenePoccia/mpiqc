@@ -11,11 +11,11 @@ export const navigation = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'logo', // Image field at the root level
+      name: 'logo',
       title: 'Header Logo',
       type: 'image',
       options: {
-        hotspot: true, // Enables image cropping in the Sanity Studio
+        hotspot: true,
       },
       fields: [
         defineField({
@@ -48,6 +48,75 @@ export const navigation = defineType({
             }),
           ],
         },
+      ],
+    }),
+    defineField({
+      name: 'warrantyCallout',
+      title: 'Warranty Callout',
+      type: 'object', // Using an object to group English & French translations
+      fields: [
+        defineField({
+          name: 'en',
+          title: 'English',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+              marks: {
+                decorators: [
+                  {title: 'Strong', value: 'strong'},
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Underline', value: 'underline'},
+                ],
+                annotations: [
+                  {
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        name: 'href',
+                        type: 'url',
+                        title: 'URL',
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        }),
+        defineField({
+          name: 'fr',
+          title: 'French',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+              marks: {
+                decorators: [
+                  {title: 'Strong', value: 'strong'},
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Underline', value: 'underline'},
+                ],
+                annotations: [
+                  {
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        name: 'href',
+                        type: 'url',
+                        title: 'URL',
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        }),
       ],
     }),
   ],

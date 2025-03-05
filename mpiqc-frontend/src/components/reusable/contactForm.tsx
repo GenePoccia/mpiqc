@@ -74,17 +74,6 @@ export default function ContactForm({
 					/>
 				</div>
 
-				{/* Image Upload Section */}
-				<div className="grid w-full gap-1.5">
-					<Label htmlFor="image">Attach a File</Label>
-					<Input
-						type="file"
-						id="image"
-						accept="image/*"
-						onChange={handleImageUpload}
-					/>
-				</div>
-
 				<Button
 					className="w-full text-white bg-black"
 					onClick={handleSubmit}

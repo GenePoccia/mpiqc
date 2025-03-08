@@ -40,40 +40,42 @@ const Footer = ({
 	const imageUrl = data?.logo ? urlFor(data?.logo).url() : "";
 
 	return (
-		<section className="w-full bg-white py-8 px-4 md:px-8">
-			<div className="container mx-auto mb-10 flex flex-col md:flex-row items-center justify-between">
-				<div className="mb-6 md:mb-0">
-					<img
-						src={imageUrl}
-						alt={data?.logo?.alt}
-						className="max-w-[288px] max-h-[96px]"
-					/>
-				</div>
+		<>
+			<section className="w-full bg-white py-8 px-4 md:px-8">
+				<div className="container mx-auto mb-10 flex flex-col md:flex-row items-center justify-between">
+					<div className="mb-6 md:mb-0">
+						<img
+							src={imageUrl}
+							alt={data?.logo?.alt}
+							className="max-w-[288px] max-h-[96px]"
+						/>
+					</div>
 
-				<div className="flex flex-col items-center md:items-end space-y-3">
-					{/* Email */}
-					<a
-						href="mailto:info@mpiqc.com"
-						className="text-gray-800 hover:text-blue-600 transition-colors"
-					>
-						{data?.email}
-					</a>
+					<div className="flex flex-col items-center md:items-end space-y-3">
+						{/* Email */}
+						<a
+							href="mailto:info@mpiqc.com"
+							className="text-gray-800 hover:text-blue-600 transition-colors"
+						>
+							{data?.email}
+						</a>
 
-					{/* Phone */}
-					<a className="text-gray-800 hover:text-blue-600 transition-colors">
-						{data?.phone}
-					</a>
+						{/* Phone */}
+						<a className="text-gray-800 hover:text-blue-600 transition-colors">
+							{data?.phone}
+						</a>
 
-					{/* Three small circles in a row */}
-					<div className="flex space-x-2">
-						{data?.socialMedia?.map((social) => renderSocialMedia(social))}
+						{/* Three small circles in a row */}
+						<div className="flex space-x-2">
+							{data?.socialMedia?.map((social) => renderSocialMedia(social))}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div className="w-[50%] mx-auto border-t border-gray-300 my-4 pt-4">
+			</section>
+			<div className="bg-[rgba(212,141,50,1)] text-white p-4">
 				{data?.copyright[language]}
 			</div>
-		</section>
+		</>
 	);
 };
 

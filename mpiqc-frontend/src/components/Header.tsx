@@ -48,12 +48,6 @@ const Header = () => {
 
 	return (
 		<>
-			<div className="bg-[rgba(212,141,50,1)] h-[50px] flex justify-center items-center">
-				{warrantyCallout && (
-					<PortableText value={warrantyCallout?.[language]} />
-				)}
-			</div>
-
 			<div className="bg-transparent text-white">
 				<div className="max-w-[1440px] mx-auto w-full px-4 flex justify-between items-center py-4">
 					<img

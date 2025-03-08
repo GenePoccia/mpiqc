@@ -34,26 +34,22 @@ export default function Certifications({
 	data: CertificationSectionData | null;
 	language: "en" | "fr";
 }) {
+	const header = data?.header?.[language];
+	const description = data?.description?.[language];
 
-	const header = data?.header?.[language]
-	const description = data?.description?.[language]
-
-	const certifications = data?.certifications
+	const certifications = data?.certifications;
 
 	// Calculate if we need to center the last item for medium and large screens
-	const hasOddItems = certifications && (certifications.length % 2 === 1);
+	const hasOddItems = certifications && certifications.length % 2 === 1;
 
 	return (
 		<section
 			id="certifications"
 			className="flex flex-col items-center my-24 text-center mx-auto"
 		>
-			<div className="w-[95%]">
-
+			<div className="w-[70%] md:w-[95%] lg:w-[95%]">
 				<h2 className="mb-4 font-semibold">{header}</h2>
-				<p className="mx-auto w-s lg:w-xl">
-					{description}
-				</p>
+				<p className="mx-auto w-s lg:w-xl">{description}</p>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-8 md:gap-16 lg:gap-24 mt-12">
 				{certifications?.map((certification, index) => {
@@ -64,7 +60,7 @@ export default function Certifications({
 					return (
 						<div
 							key={index}
-							className={`${centerLastItem ? 'md:col-span-2 lg:col-span-1' : ''}`}
+							className={`${centerLastItem ? "md:col-span-2 lg:col-span-1" : ""}`}
 						>
 							{renderCertification(certification, index)}
 						</div>

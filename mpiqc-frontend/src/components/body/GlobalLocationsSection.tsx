@@ -92,7 +92,7 @@ export default function GlobalLocations({
 					<p>{description}</p>
 				</div>
 
-				<div className="flex flex-wrap justify-center items-center gap-32 gap-y-12 my-12">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-32 gap-y-12 my-12">
 					{globalLocations?.map((location, index) =>
 						renderLocations(location, language, index)
 					)}

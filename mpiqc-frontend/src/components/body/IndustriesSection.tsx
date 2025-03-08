@@ -52,7 +52,7 @@ export default function IndustriesSection({
 		<>
 			<section
 				id="industries"
-				className="min-h-[50vh] flex items-center mt-24 lg:mt-0 justify-center"
+				className="min-h-[50vh] flex items-center mt-24 lg:mt-0 justify-center  mx-12 md:mx-0 lg:mx-0"
 			>
 				{industry && imageFirstMagazine(industry, language)}
 			</section>

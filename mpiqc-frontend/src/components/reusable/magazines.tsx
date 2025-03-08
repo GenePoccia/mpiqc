@@ -90,7 +90,7 @@ export const meetTheTeamMagazine = (
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
-		<div className="flex flex-col lg:flex-row gap-2 lg:gap-24 items-center justify-center h-full w-full max-w-screen-lg mx-auto">
+		<div className="flex flex-col lg:flex-row gap-8 items-center justify-center h-full w-full max-w-screen-lg mx-auto">
 			<div className="flex items-center justify-center">
 				{magazine?.image && (
 					<img

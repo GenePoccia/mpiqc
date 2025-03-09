@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
@@ -21,12 +21,17 @@ function urlFor(source: SanityImage) {
 const renderCategory = (
 	category: CategoryInterface,
 	language: keyof CategoryInterface,
-	index: number
+	index: number,
+	setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>
 ) => (
-	<div key={`category-${index}`}>
+	<div
+		className="text-left"
+		key={`category-${index}`}
+	>
 		<Link
 			href={`#${category?.route}`}
 			scroll={true}
+			onClick={() => setMobileMenuOpen?.(false)}
 		>
 			{category[language]}
 		</Link>
@@ -76,20 +81,34 @@ const Header = () => {
 						{mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>
 
-					{/* Mobile Nav (Hidden by default, appears when toggled) */}
-					{mobileMenuOpen && (
-						<div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-4 py-6 md:hidden">
-							{categories.map((category, index) =>
-								renderCategory(category, language, index)
-							)}
+					<div
+						className={`fixed top-0 right-0 h-screen w-64 bg-white text-black shadow-lg items-start space-y-6 py-6 transform transition-all duration-300 ease-in-out md:hidden z-50
+						${mobileMenuOpen ? "translate-x-0 opacity-100 visible" : "translate-x-full opacity-0 invisible"}`}
+					>
+						{/* Close Button (Top Right) */}
+						<button
+							onClick={() => setMobileMenuOpen(false)}
+							className="absolute top-4 right-4 p-2"
+						>
+							<X size={24} />
+						</button>
+
+						{/* Categories - Left Aligned */}
+						<div className="ml-8 w-full space-y-4 mt-10">
+							{categories.map((category, index) => (
+								<div key={`category-${index}`}>
+									{renderCategory(category, language, index, setMobileMenuOpen)}
+								</div>
+							))}
+							{/* Language Toggle - Left Aligned */}
 							<div
 								onClick={changeLanguage}
-								className="cursor-pointer"
+								className="cursor-pointer text-left"
 							>
 								{language === "en" ? "FR" : "EN"}
 							</div>
 						</div>
-					)}
+					</div>
 				</div>
 			</div>
 		</>

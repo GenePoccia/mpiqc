@@ -51,7 +51,10 @@ export default function OurTeam({
 	}, [api]);
 
 	return (
-		<div className="h-screen w-full flex items-center justify-center p-4 bg-background">
+		<div
+			id="our-team"
+			className="h-screen w-full flex items-center justify-center p-4 bg-background"
+		>
 			<div className="w-full mx-12 lg:mx-0 max-w-4xl">
 				<Carousel
 					setApi={setApi}

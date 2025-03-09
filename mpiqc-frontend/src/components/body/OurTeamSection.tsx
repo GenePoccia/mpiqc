@@ -14,15 +14,7 @@ import { cn } from "@/lib/utils";
 import { MeetTheTeamSectionData, SanityImage } from "@/types/sanityTypes";
 import { meetTheTeamMagazine } from "../reusable/magazines";
 
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
 import Image from "next/image";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: SanityImage) {
-	return builder.image(source);
-}
 
 export default function OurTeam({
 	data,
@@ -34,8 +26,6 @@ export default function OurTeam({
 	const [api, setApi] = useState<CarouselApi>();
 	const [current, setCurrent] = useState(0);
 	const [count, setCount] = useState(0);
-
-	const slides = 5;
 
 	useEffect(() => {
 		if (!api) {

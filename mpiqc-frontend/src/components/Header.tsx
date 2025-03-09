@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
 import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
 
-import { PortableText } from "@portabletext/react";
-
 import { Menu, X } from "lucide-react"; // Import icons for the mobile menu
 
 import imageUrlBuilder from "@sanity/image-url";

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../../app/globals.css";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,8 +13,46 @@ export default function ContactForm({
 	data: ContactUsSectionData | null;
 	language: "en" | "fr";
 }) {
-	const handleSubmit = () => {
-		window.alert("hi");
+	const [formData, setFormData] = useState({
+		firstname: "",
+		lastname: "",
+		email: "",
+		message: "",
+	});
+	const [loading, setLoading] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [error, setError] = useState("");
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		setFormData({ ...formData, [e.target.id]: e.target.value });
+	};
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		setLoading(true);
+		setError("");
+		setSuccess(false);
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(formData),
+			});
+
+			if (response.ok) {
+				setSuccess(true);
+				setFormData({ firstname: "", lastname: "", email: "", message: "" });
+			} else {
+				setError("Failed to send message.");
+			}
+		} catch (error) {
+			setError("An error occurred.");
+		} finally {
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -29,13 +68,19 @@ export default function ContactForm({
 				{data?.paragraph?.[language]}
 			</p>
 
-			<div className="mx-auto flex w-full max-w-lg flex-col gap-6 sm:gap-8 rounded-lg border p-6 sm:p-8 md:p-10 lg:p-12 text-left text-black bg-white">
+			<form
+				onSubmit={handleSubmit}
+				className="mx-auto flex w-full max-w-lg flex-col gap-6 sm:gap-8 rounded-lg border p-6 sm:p-8 md:p-10 lg:p-12 text-left text-black bg-white"
+			>
 				<div className="grid w-full items-center gap-1.5">
 					<Label htmlFor="firstname">First Name</Label>
 					<Input
 						type="text"
 						id="firstname"
 						placeholder="First Name"
+						value={formData.firstname}
+						onChange={handleChange}
+						required
 					/>
 				</div>
 				<div className="grid w-full items-center gap-1.5">
@@ -44,6 +89,9 @@ export default function ContactForm({
 						type="text"
 						id="lastname"
 						placeholder="Last Name"
+						value={formData.lastname}
+						onChange={handleChange}
+						required
 					/>
 				</div>
 				<div className="grid w-full items-center gap-1.5">
@@ -52,23 +100,33 @@ export default function ContactForm({
 						type="email"
 						id="email"
 						placeholder="Email"
+						value={formData.email}
+						onChange={handleChange}
+						required
 					/>
 				</div>
 				<div className="grid w-full gap-1.5">
 					<Label htmlFor="message">Message</Label>
 					<Textarea
-						placeholder="Type your message here."
 						id="message"
+						placeholder="Type your message here."
+						value={formData.message}
+						onChange={handleChange}
+						required
 					/>
 				</div>
 
 				<Button
 					className="w-full text-white bg-black"
-					onClick={handleSubmit}
+					type="submit"
+					disabled={loading}
 				>
-					Submit
+					{loading ? "Sending..." : "Submit"}
 				</Button>
-			</div>
+
+				{success && <p className="text-black">Message sent successfully!</p>}
+				{error && <p className="text-red-600">{error}</p>}
+			</form>
 		</div>
 	);
 }

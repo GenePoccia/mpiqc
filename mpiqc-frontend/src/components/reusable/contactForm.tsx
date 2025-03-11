@@ -49,6 +49,7 @@ export default function ContactForm({
 				setError("Failed to send message.");
 			}
 		} catch (error) {
+			console.error(error);
 			setError("An error occurred.");
 		} finally {
 			setLoading(false);

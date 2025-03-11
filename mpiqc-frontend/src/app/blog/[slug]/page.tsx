@@ -15,7 +15,7 @@ export default async function PostPage({
 	searchParams,
 }: {
 	params: { slug: string };
-	searchParams: { language: string };
+	searchParams: { language: "en" | "fr" };
 }) {
 	const resolvedParams = await params;
 	const resolvedLanguage = await searchParams;
@@ -24,11 +24,11 @@ export default async function PostPage({
 		client.fetch<BlogPostData>(FULL_BLOG_POST_QUERY, resolvedParams, options)
 	);
 
-	console.log(blogPost);
-
 	if (!blogPost) {
 		return <div>Post not found</div>;
 	}
+
+	const content = blogPost?.excerpt[resolvedLanguage?.language];
 
 	return (
 		<div className="container mx-auto px-5">
@@ -39,7 +39,7 @@ export default async function PostPage({
 					className="w-full h-auto rounded-lg mt-4"
 				/>
 			)}
-			hello
+			{content}
 		</div>
 	);
 }

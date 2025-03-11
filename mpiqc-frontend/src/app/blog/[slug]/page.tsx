@@ -17,11 +17,11 @@ export default async function PostPage({
 	params: { slug: string };
 	searchParams: { language: "en" | "fr" };
 }) {
-	const resolvedParams = await params;
-	const { language } = await searchParams;
+	const { slug } = params;
+	const { language } = searchParams;
 
 	const blogPost = await Promise.resolve(
-		client.fetch<BlogPostData>(FULL_BLOG_POST_QUERY, resolvedParams, options)
+		client.fetch<BlogPostData>(FULL_BLOG_POST_QUERY, { slug }, options)
 	);
 
 	if (!blogPost) {

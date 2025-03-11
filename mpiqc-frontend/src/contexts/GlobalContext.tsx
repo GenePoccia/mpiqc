@@ -152,7 +152,6 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		fetchData();
 	}, []);
 
-	console.log(partialBlogPostData);
 	const value = {
 		categories,
 		warrantyCallout,

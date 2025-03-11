@@ -8,6 +8,11 @@ interface LocalizedText {
 	_type: string;
 }
 
+export interface Slug {
+	_type: "slug";
+	current: string;
+}
+
 export interface SanityImage {
 	_type: "image";
 	asset: {
@@ -29,6 +34,10 @@ export interface SocialMedia {
 	alt: string;
 	_id: string;
 	_key: string;
+}
+
+export interface BlogPostData extends PartialBlogPostData {
+	content: PortableTextBlock[];
 }
 
 // content structure
@@ -106,7 +115,7 @@ export interface PartialBlogPostData {
 	author: string;
 	date: string;
 	readMore: LocalizedText;
-	slug: string;
+	slug: Slug;
 	postTitle: LocalizedText;
 }
 

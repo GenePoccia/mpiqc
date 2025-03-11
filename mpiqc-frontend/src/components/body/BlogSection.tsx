@@ -6,6 +6,7 @@ import {
 
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 
@@ -33,7 +34,6 @@ const renderPartialPost = (
 		? urlFor(postData?.coverImage).url()
 		: "";
 
-	console.log(postData);
 	return (
 		<div
 			key={`blog_post_` + index}
@@ -47,7 +47,13 @@ const renderPartialPost = (
 			<span>{formatDate(postData?.date)}</span>
 			<span>{postData?.postTitle?.[language]}</span>
 			<span>{postData?.excerpt?.[language]}</span>
-			<span>{postData?.readMore?.[language]}</span>
+			<Link
+				href={`/blog/${postData?.slug?.current}?language=${language}`}
+				key={`blog_post_` + index}
+				passHref
+			>
+				<span>{postData?.readMore?.[language]}</span>
+			</Link>
 		</div>
 	);
 };

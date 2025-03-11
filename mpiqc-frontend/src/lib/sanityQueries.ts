@@ -13,6 +13,8 @@ export const MEET_THE_TEAM_QUERY = createQuery("meetTheTeam");
 export const CONTACT_US_QUERY = createQuery("contactUs");
 export const FOOTER_QUERY = createQuery("footer");
 
+export const FULL_BLOG_POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
+
 export const PARTIAL_BLOG_QUERY = `*[_type == "post"] {
 coverImage,
 excerpt,

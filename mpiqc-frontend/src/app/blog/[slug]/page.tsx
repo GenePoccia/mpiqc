@@ -1,12 +1,12 @@
 import { client } from "@/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { FULL_BLOG_POST_QUERY } from "@/lib/sanityQueries";
-import { BlogPostData } from "@/types/sanityTypes";
+import { BlogPostData, SanityImage } from "@/types/sanityTypes";
 import { options } from "@/lib/sanityOptions";
 
 // Image URL builder
 const builder = imageUrlBuilder(client);
-function urlFor(source: any) {
+function urlFor(source: SanityImage) {
 	return builder.image(source);
 }
 

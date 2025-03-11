@@ -14,21 +14,23 @@ export default async function PostPage({
 	params,
 	searchParams,
 }: {
-	params: { slug: string };
-	searchParams: { language: "en" | "fr" };
+	params: Promise<{ slug: string }>;
+	searchParams: Promise<{ language: "en" | "fr" }>;
 }) {
-	const { slug } = params;
-	const { language } = searchParams;
+	const { slug } = await params;
+	const { language } = await searchParams;
 
-	const blogPost = await Promise.resolve(
-		client.fetch<BlogPostData>(FULL_BLOG_POST_QUERY, { slug }, options)
+	const blogPost = await client.fetch<BlogPostData>(
+		FULL_BLOG_POST_QUERY,
+		{ slug },
+		options
 	);
 
 	if (!blogPost) {
 		return <div>Post not found</div>;
 	}
 
-	const content = blogPost?.excerpt[language];
+	const content = blogPost?.excerpt?.[language];
 
 	return (
 		<div className="container mx-auto px-5">

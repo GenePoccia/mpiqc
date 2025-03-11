@@ -35,25 +35,6 @@ export const blogPost = defineType({
     }),
     defineField({
       type: 'object',
-      name: 'header',
-      title: 'Header',
-      fields: [
-        defineField({
-          name: 'en',
-          title: 'English',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-        defineField({
-          name: 'fr',
-          title: 'French',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
-      ],
-    }),
-    defineField({
-      type: 'object',
       name: 'readMore',
       title: 'Read More Callout',
       fields: [

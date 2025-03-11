@@ -13,6 +13,17 @@ function urlFor(source: SanityImage) {
 	return builder.image(source);
 }
 
+const formatDate = (unformattedDate: string) => {
+	const date = new Date(unformattedDate);
+	const formattedDate = date.toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+
+	return formattedDate;
+};
+
 const renderPartialPost = (
 	postData: PartialBlogPostData,
 	index: number,
@@ -22,6 +33,7 @@ const renderPartialPost = (
 		? urlFor(postData?.coverImage).url()
 		: "";
 
+	console.log(postData);
 	return (
 		<div
 			key={`blog_post_` + index}
@@ -32,7 +44,7 @@ const renderPartialPost = (
 				alt={postData?.coverImage?.alt}
 				className="max-w-[288px] max-h-[96px]"
 			/>
-			<span>{postData?.date}</span>
+			<span>{formatDate(postData?.date)}</span>
 			<span>{postData?.postTitle?.[language]}</span>
 			<span>{postData?.excerpt?.[language]}</span>
 			<span>{postData?.readMore?.[language]}</span>

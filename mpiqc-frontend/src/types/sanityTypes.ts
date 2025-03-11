@@ -100,6 +100,20 @@ export interface OurCapabilitiesSectionData {
 	services: Service[];
 }
 
+export interface PartialBlogPostData {
+	coverImage: SanityImage;
+	excerpt: LocalizedText;
+	author: string;
+	date: string;
+	readMore: LocalizedText;
+	slug: string;
+	postTitle: LocalizedText;
+}
+
+export interface BlogSectionData {
+	header: LocalizedText;
+}
+
 export interface CertificationSectionData {
 	header: LocalizedText;
 	description: LocalizedText;

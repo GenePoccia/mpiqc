@@ -17,6 +17,7 @@ import {
 	WELCOME_QUERY,
 	WHO_WE_ARE_QUERY,
 	OUR_CAPABILITIES_QUERY,
+	BLOG_QUERY,
 	CERTIFICATIONS_QUERY,
 	LOCATIONS_QUERY,
 	INDUSTRIES_QUERY,
@@ -24,6 +25,7 @@ import {
 	MEET_THE_TEAM_QUERY,
 	CONTACT_US_QUERY,
 	FOOTER_QUERY,
+	PARTIAL_BLOG_QUERY,
 } from "../lib/sanityQueries";
 import { GlobalContextType } from "../types/contextTypes";
 import {
@@ -32,6 +34,7 @@ import {
 	WelcomeSectionData,
 	WhoWeAreSectionData,
 	OurCapabilitiesSectionData,
+	BlogSectionData,
 	CertificationSectionData,
 	LocationSectionData,
 	IndustriesSectionData,
@@ -40,6 +43,7 @@ import {
 	ContactUsSectionData,
 	FooterData,
 	SanityImage,
+	PartialBlogPostData,
 } from "../types/sanityTypes";
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -62,6 +66,11 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	);
 	const [ourCapabilitiesData, setOurCapabilitiesData] =
 		useState<OurCapabilitiesSectionData | null>(null);
+	const [blogSectionData, setBlogSectionData] =
+		useState<BlogSectionData | null>(null);
+	const [partialBlogPostData, setPartialBlogPostData] = useState<
+		PartialBlogPostData[] | null
+	>(null);
 	const [certificationsData, setCertificationsData] =
 		useState<CertificationSectionData | null>(null);
 	const [locationsData, setLocationsData] =
@@ -83,6 +92,8 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 					welcomePage,
 					whoWeAre,
 					ourCapabilities,
+					blogSection,
+					partialBlogPost,
 					certifications,
 					locations,
 					industries,
@@ -99,6 +110,8 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 						{},
 						options
 					),
+					client.fetch<BlogSectionData[]>(BLOG_QUERY, {}, options),
+					client.fetch<PartialBlogPostData[]>(PARTIAL_BLOG_QUERY, {}, options),
 					client.fetch<CertificationSectionData[]>(
 						CERTIFICATIONS_QUERY,
 						{},
@@ -122,6 +135,8 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				setWelcomeData(welcomePage[0]);
 				setWhoWeAreData(whoWeAre[0]);
 				setOurCapabilitiesData(ourCapabilities[0]);
+				setBlogSectionData(blogSection[0]);
+				setPartialBlogPostData(partialBlogPost);
 				setCertificationsData(certifications[0]);
 				setLocationsData(locations[0]);
 				setIndustriesData(industries[0]);
@@ -137,6 +152,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		fetchData();
 	}, []);
 
+	console.log(partialBlogPostData);
 	const value = {
 		categories,
 		warrantyCallout,
@@ -146,6 +162,8 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		welcomeData,
 		whoWeAreData,
 		ourCapabilitiesData,
+		blogSectionData,
+		partialBlogPostData,
 		certificationsData,
 		locationsData,
 		industriesData,

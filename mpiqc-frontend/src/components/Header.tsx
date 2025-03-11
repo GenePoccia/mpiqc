@@ -37,8 +37,7 @@ const renderCategory = (
 );
 
 const Header = () => {
-	const { categories, warrantyCallout, headerLogo, language, setLanguage } =
-		useGlobalContext();
+	const { categories, headerLogo, language, setLanguage } = useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	const changeLanguage = () => {
@@ -46,8 +45,6 @@ const Header = () => {
 	};
 
 	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
-
-	console.log(warrantyCallout);
 
 	return (
 		<>

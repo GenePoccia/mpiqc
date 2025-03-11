@@ -3,6 +3,7 @@ import {
 	WelcomeSectionData,
 	WhoWeAreSectionData,
 	OurCapabilitiesSectionData,
+	BlogSectionData,
 	CertificationSectionData,
 	LocationSectionData,
 	WhyUsSectionData,
@@ -12,6 +13,7 @@ import {
 	FooterData,
 	SanityImage,
 	WarrantyCalloutInterface,
+	PartialBlogPostData,
 } from "./sanityTypes";
 import { Dispatch, SetStateAction } from "react";
 
@@ -24,6 +26,8 @@ export interface GlobalContextType {
 	welcomeData: WelcomeSectionData | null;
 	whoWeAreData: WhoWeAreSectionData | null;
 	ourCapabilitiesData: OurCapabilitiesSectionData | null;
+	blogSectionData: BlogSectionData | null;
+	partialBlogPostData: PartialBlogPostData[] | null;
 	certificationsData: CertificationSectionData | null;
 	locationsData: LocationSectionData | null;
 	industriesData: IndustriesSectionData | null;

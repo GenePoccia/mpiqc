@@ -11,7 +11,7 @@ import {
 	type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { MeetTheTeamSectionData, SanityImage } from "@/types/sanityTypes";
+import { MeetTheTeamSectionData } from "@/types/sanityTypes";
 import { meetTheTeamMagazine } from "../reusable/magazines";
 
 import Image from "next/image";

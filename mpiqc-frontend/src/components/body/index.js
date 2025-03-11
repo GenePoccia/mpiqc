@@ -1,3 +1,4 @@
+export { default as BlogSection } from "./BlogSection";
 export { default as Certifications } from "./CertificationsSection";
 export { default as Contact } from "./ContactSection";
 export { default as EMSServices } from "./EMSServicesSection";

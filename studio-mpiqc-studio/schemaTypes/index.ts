@@ -10,6 +10,8 @@ import {whyUs} from './whyUs'
 import {meetTheTeam} from './meetTheTeam'
 import {contactUs} from './contactUs'
 import {footer} from './footer'
+import {blogPost} from './blogPost'
+import {blogSection} from './blogSection'
 
 export const schemaTypes = [
   //pages
@@ -18,12 +20,14 @@ export const schemaTypes = [
   whoWeAre,
   ourCapabilities,
   certifications,
+  blogSection,
   locations,
   industries,
   whyUs,
   meetTheTeam,
   contactUs,
   footer,
+  blogPost,
   //reusable
   magazine,
 ]

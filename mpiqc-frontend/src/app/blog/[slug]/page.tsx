@@ -18,7 +18,7 @@ export default async function PostPage({
 	searchParams: { language: "en" | "fr" };
 }) {
 	const resolvedParams = await params;
-	const resolvedLanguage = await searchParams;
+	const { language } = await searchParams;
 
 	const blogPost = await Promise.resolve(
 		client.fetch<BlogPostData>(FULL_BLOG_POST_QUERY, resolvedParams, options)
@@ -28,7 +28,7 @@ export default async function PostPage({
 		return <div>Post not found</div>;
 	}
 
-	const content = blogPost?.excerpt[resolvedLanguage?.language];
+	const content = blogPost?.excerpt[language];
 
 	return (
 		<div className="container mx-auto px-5">

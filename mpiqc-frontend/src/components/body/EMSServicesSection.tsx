@@ -41,7 +41,7 @@ export default function EMSServices({
 				id="warranty"
 				className=" flex items-center justify-center"
 			>
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-4 lg:mt-24 mx-12">
 					{services?.map((ele, index) => renderService(ele, language, index))}
 				</div>
 			</section>

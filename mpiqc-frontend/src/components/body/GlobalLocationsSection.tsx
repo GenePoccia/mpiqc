@@ -86,14 +86,14 @@ export default function GlobalLocations({
 					backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 				}}
 			>
-				<div className="max-w-[1440px] mx-0 lg:mx-8">
-					<div className="text-left w-[70%] sm:w-md pt-24 ">
+				<div className="max-w-[1440px] w-full px-4 mx-auto">
+					<div className="text-left w-full sm:w-[70%] pt-24 mx-auto text-center sm:text-left">
 						<h2 className="mb-2">{subHeader}</h2>
 						<h1 className="mb-4">{header}</h1>
 						<p>{description}</p>
 					</div>
 
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-12 gap-y-12 my-12">
+					<div className="grid sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-12 gap-y-12 my-12 mx-auto">
 						{globalLocations?.map((location, index) =>
 							renderLocations(location, language, index)
 						)}

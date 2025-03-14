@@ -1,18 +1,22 @@
 import "../../app/globals.css";
+import { WhoWeAreSectionData } from "@/types/sanityTypes";
+import { imageFirstMagazine } from "../reusable/magazines";
 
-export default async function WhoAreWe() {
+export default function WhoAreWe({
+	data,
+	language,
+}: {
+	data: WhoWeAreSectionData | null;
+	language: "en" | "fr";
+}) {
+	const magazineContent = data?.magazineContent;
+
 	return (
 		<section
-			id="story"
-			className="flex items-center justify-center h-screen"
+			id="who-we-are"
+			className="flex items-center mt-24 lg:nt-0 justify-center mx-12 md:mx-0 lg:mx-0"
 		>
-			<div className="pr-10">left section with image</div>
-			<div>
-				<h3>about us</h3>
-				<h4>Introducing a dynamic ....</h4>
-				<p>At Pilot6co ...</p>
-				<p>We Know manufacturing...</p>
-			</div>
+			{magazineContent && imageFirstMagazine(magazineContent, language)}
 		</section>
 	);
 }

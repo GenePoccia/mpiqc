@@ -1,21 +1,50 @@
+import { OurCapabilitiesSectionData, Service } from "@/types/sanityTypes";
+import { textFirstMagazine } from "../reusable/magazines";
+
 import "../../app/globals.css";
 
-export default async function EMSServices() {
+const renderService = (
+	service: Service,
+	language: "en" | "fr",
+	index: number
+) => {
 	return (
-		<section
-			id="ems-services"
-			className="flex flex-col items-center justify-center h-screen space-y-6"
+		<div
+			key={index}
+			className="text-left"
 		>
-			<div className="flex justify-between space-x-4">
-				<div>exploring our products</div>
-				<div>image placeholder</div>
-			</div>
+			<h3 className="mb-6 font-bold">{service?.service?.[language]}</h3>
+			<p>{service?.description[language]}</p>
+		</div>
+	);
+};
 
-			<div className="flex justify-between space-x-4">
-				<div>column 1</div>
-				<div>column 2</div>
-				<div>column 3</div>
-			</div>
-		</section>
+export default function EMSServices({
+	data,
+	language,
+}: {
+	data: OurCapabilitiesSectionData | null;
+	language: "en" | "fr";
+}) {
+	const magazineContent = data?.magazineContent;
+	const services = data?.services;
+
+	return (
+		<>
+			<section
+				id="capabilities"
+				className=" flex items-center mt-8 lg:mt-24 lg:nt-0 justify-center mx-12 md:mx-0 lg:mx-0"
+			>
+				{magazineContent && textFirstMagazine(magazineContent, language)}
+			</section>
+			<section
+				id="warranty"
+				className=" flex items-center justify-center"
+			>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-4 lg:mt-24 mx-12">
+					{services?.map((ele, index) => renderService(ele, language, index))}
+				</div>
+			</section>
+		</>
 	);
 }

@@ -78,25 +78,9 @@ export default function OurTeam({
 					</CarouselContent>
 
 					{/* Arrow navigation (visible only on large screens) */}
-					<CustomCarouselPrevious className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent">
-						<Image
-							src="/images/arrow-left.svg"
-							alt="Previous slide"
-							width={20}
-							height={20}
-							className="w-full h-full object-contain"
-						/>
-					</CustomCarouselPrevious>
+					<CustomCarouselPrevious className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselPrevious>
 
-					<CustomCarouselNext className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent">
-						<Image
-							src="/images/arrow-right.svg"
-							alt="Next slide"
-							width={20}
-							height={20}
-							className="w-full h-full object-contain"
-						/>
-					</CustomCarouselNext>
+					<CustomCarouselNext className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselNext>
 
 					{/* Dot indicators */}
 					<div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">

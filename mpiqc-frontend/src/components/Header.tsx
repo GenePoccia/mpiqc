@@ -53,7 +53,7 @@ const Header = () => {
 	return (
 		<>
 			<div className="bg-white text-black">
-				<div className="max-w-[1440px] mx-auto w-full px-4 flex justify-between items-center py-4">
+				<div className="max-w-[1440px] mx-auto w-full p-2 flex justify-between items-center ">
 					<div className="flex flex-row items-center gap-x-4">
 						<img
 							src={logoURL}

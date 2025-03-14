@@ -11,10 +11,17 @@ import {
 	type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
-import { MeetTheTeamSectionData } from "@/types/sanityTypes";
+import { MeetTheTeamSectionData, SanityImage } from "@/types/sanityTypes";
 import { meetTheTeamMagazine } from "../reusable/magazines";
 
-import Image from "next/image";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/sanity/client";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: SanityImage) {
+	return builder.image(source);
+}
 
 export default function OurTeam({
 	data,
@@ -40,12 +47,18 @@ export default function OurTeam({
 		});
 	}, [api]);
 
+	const imageUrl = data?.backgroundImage
+		? urlFor(data.backgroundImage).url()
+		: "";
 	return (
 		<div
 			id="our-team"
-			className="h-screen w-full flex items-center justify-center p-4 bg-background"
+			className="h-screen mt-24 w-full flex items-center justify-center p-4 bg-background"
+			style={{
+				backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
+			}}
 		>
-			<div className="w-full mx-12 lg:mx-0 max-w-4xl">
+			<div className="w-full mx-12 lg:mx-0 max-w-4xl rounded-md bg-[rgba(255,255,255,0.5)]">
 				<Carousel
 					setApi={setApi}
 					className="w-full relative"

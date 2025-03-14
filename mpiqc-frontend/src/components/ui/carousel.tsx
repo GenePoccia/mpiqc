@@ -258,7 +258,7 @@ CarouselNext.displayName = "CarouselNext";
 
 const CustomCarouselPrevious = React.forwardRef<
 	HTMLButtonElement,
-	React.ComponentProps<typeof Button>
+	React.ComponentProps<typeof Button> & { className?: string } // Extend the props with className
 >(({ className, ...props }, ref) => {
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
@@ -266,7 +266,7 @@ const CustomCarouselPrevious = React.forwardRef<
 		<button
 			ref={ref}
 			className={cn(
-				"absolute  h-8 w-8 border-none",
+				"absolute h-8 w-8 border-none",
 				orientation === "horizontal"
 					? "-left-12 top-1/2 -translate-y-1/2"
 					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -274,14 +274,14 @@ const CustomCarouselPrevious = React.forwardRef<
 			)}
 			disabled={!canScrollPrev}
 			onClick={scrollPrev}
-			{...props}
+			{...props} // Spread remaining props from Button (like onClick, etc.)
 		>
 			<Image
 				src="/images/arrow-left.svg"
 				alt="Previous slide"
 				width={20}
 				height={20}
-				className="w-full h-full object-contain "
+				className="w-full h-full object-contain"
 			/>
 		</button>
 	);
@@ -290,7 +290,7 @@ CustomCarouselPrevious.displayName = "CustomCarouselPrevious";
 
 const CustomCarouselNext = React.forwardRef<
 	HTMLButtonElement,
-	React.ComponentProps<typeof Button>
+	React.ComponentProps<typeof Button> & { className?: string } // Extend the props with className
 >(({ className, ...props }, ref) => {
 	const { orientation, scrollNext, canScrollNext } = useCarousel();
 
@@ -298,7 +298,7 @@ const CustomCarouselNext = React.forwardRef<
 		<button
 			ref={ref}
 			className={cn(
-				"absolute ",
+				"absolute",
 				orientation === "horizontal"
 					? "-right-12 top-1/2 -translate-y-1/2"
 					: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -306,14 +306,14 @@ const CustomCarouselNext = React.forwardRef<
 			)}
 			disabled={!canScrollNext}
 			onClick={scrollNext}
-			{...props}
+			{...props} // Spread remaining props from Button (like onClick, etc.)
 		>
 			<Image
 				src="/images/arrow-right.svg"
-				alt="Previous slide"
+				alt="Next slide"
 				width={20}
 				height={20}
-				className="w-full h-full object-contain "
+				className="w-full h-full object-contain"
 			/>
 		</button>
 	);

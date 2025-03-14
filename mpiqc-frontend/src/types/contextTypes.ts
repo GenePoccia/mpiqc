@@ -21,6 +21,7 @@ export interface GlobalContextType {
 	categories: CategoryInterface[];
 	warrantyCallout: WarrantyCalloutInterface | null;
 	headerLogo: SanityImage | null;
+	warrantyImage: SanityImage | null;
 	language: "en" | "fr";
 	setLanguage: Dispatch<SetStateAction<"en" | "fr">>;
 	welcomeData: WelcomeSectionData | null;

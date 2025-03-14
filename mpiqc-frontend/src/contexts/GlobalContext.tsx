@@ -54,6 +54,7 @@ interface ProviderProps {
 
 export const Provider: React.FC<ProviderProps> = ({ children }) => {
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
+	const [warrantyImage, setWarrantyImage] = useState<SanityImage | null>(null);
 	const [warrantyCallout, setWarrantyCallout] =
 		useState<WarrantyCalloutInterface | null>(null);
 	const [headerLogo, setHeaderLogo] = useState<SanityImage | null>(null);
@@ -132,6 +133,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 				setCategories(categoriesResult[0]?.navigationCategories || []);
 				setWarrantyCallout(categoriesResult[0]?.warrantyCallout || []);
 				setHeaderLogo(categoriesResult[0]?.logo || []);
+				setWarrantyImage(categoriesResult[0]?.warrantyImage || []);
 				setWelcomeData(welcomePage[0]);
 				setWhoWeAreData(whoWeAre[0]);
 				setOurCapabilitiesData(ourCapabilities[0]);
@@ -156,6 +158,7 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 		categories,
 		warrantyCallout,
 		headerLogo,
+		warrantyImage,
 		language,
 		setLanguage,
 		welcomeData,

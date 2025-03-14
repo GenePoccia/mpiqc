@@ -78,6 +78,7 @@ export interface CategoryInterface {
 	en: string;
 	fr: string;
 	route: string;
+	isSpecialColor: boolean;
 }
 
 export interface WarrantyCalloutInterface {

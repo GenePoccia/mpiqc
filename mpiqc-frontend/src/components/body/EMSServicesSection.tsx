@@ -33,13 +33,13 @@ export default function EMSServices({
 		<>
 			<section
 				id="capabilities"
-				className="min-h-[50vh] flex items-center lg:nt-0 justify-center mx-12 md:mx-0 lg:mx-0"
+				className=" flex items-center mt-8 lg:mt-24 lg:nt-0 justify-center mx-12 md:mx-0 lg:mx-0"
 			>
 				{magazineContent && textFirstMagazine(magazineContent, language)}
 			</section>
 			<section
 				id="warranty"
-				className="min-h-[50vh] flex items-center justify-center"
+				className=" flex items-center justify-center"
 			>
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-[1048px] gap-12 mt-24 mx-12">
 					{services?.map((ele, index) => renderService(ele, language, index))}

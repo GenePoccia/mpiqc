@@ -118,7 +118,7 @@ export default function ContactForm({
 				</div>
 
 				<Button
-					className="w-full text-white bg-black"
+					className="w-full text-white bg-[rgba(128,19,35,1)] "
 					type="submit"
 					disabled={loading}
 				>

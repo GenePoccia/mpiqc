@@ -21,23 +21,27 @@ const renderCategory = (
 	language: keyof CategoryInterface,
 	index: number,
 	setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>
-) => (
-	<div
-		className="text-left"
-		key={`category-${index}`}
-	>
-		<Link
-			href={`#${category?.route}`}
-			scroll={true}
-			onClick={() => setMobileMenuOpen?.(false)}
+) => {
+	return (
+		<div
+			className="text-left"
+			key={`category-${index}`}
 		>
-			{category[language]}
-		</Link>
-	</div>
-);
+			<Link
+				href={`#${category?.route}`}
+				scroll={true}
+				className={`${category.isSpecialColor ? "text-[rgba(212,141,50,1)]" : ""}`}
+				onClick={() => setMobileMenuOpen?.(false)}
+			>
+				{category[language]}
+			</Link>
+		</div>
+	);
+};
 
 const Header = () => {
-	const { categories, headerLogo, language, setLanguage } = useGlobalContext();
+	const { categories, headerLogo, language, warrantyImage, setLanguage } =
+		useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	const changeLanguage = () => {
@@ -45,18 +49,23 @@ const Header = () => {
 	};
 
 	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
-
+	const warrantyLogoURL = warrantyImage ? urlFor(warrantyImage).url() : "";
 	return (
 		<>
-			<div className="bg-transparent text-white">
+			<div className="bg-white text-black">
 				<div className="max-w-[1440px] mx-auto w-full px-4 flex justify-between items-center py-4">
-					<img
-						src={logoURL}
-						alt={headerLogo?.alt}
-					/>
-
+					<div className="flex flex-row items-center gap-x-4">
+						<img
+							src={logoURL}
+							alt={headerLogo?.alt}
+						/>
+						<img
+							src={warrantyLogoURL}
+							alt={warrantyImage?.alt}
+						/>
+					</div>
 					{/* Desktop Nav (Hidden on small screens) */}
-					<div className="hidden md:flex space-x-4">
+					<div className="hidden lg:flex space-x-4">
 						{categories.map((category, index) =>
 							renderCategory(category, language, index)
 						)}
@@ -71,7 +80,7 @@ const Header = () => {
 					{/* Mobile Menu Button */}
 					<button
 						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-						className="md:hidden block p-2"
+						className="lg:hidden block p-2"
 					>
 						{mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
 					</button>

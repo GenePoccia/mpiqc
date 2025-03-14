@@ -26,6 +26,21 @@ export const navigation = defineType({
       ],
     }),
     defineField({
+      name: 'warrantyImage',
+      title: 'Warranty Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'navigationCategories',
       title: 'Navigation Categories',
       type: 'array',
@@ -51,6 +66,12 @@ export const navigation = defineType({
               title: 'Route',
               type: 'string',
               validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'isSpecialColor',
+              title: 'Is Special Color',
+              type: 'boolean',
+              initialValue: false,
             }),
           ],
         },

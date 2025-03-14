@@ -12,7 +12,7 @@ export default function WhyChooseUs({
 	return (
 		<section
 			id="why-us"
-			className="min-h-[50vh] flex items-center lg:nt-0 justify-center  mx-12 md:mx-0 lg:mx-0"
+			className="flex items-center mt-8 lg:mt-24 lg:nt-0 justify-center  mx-12 md:mx-0 lg:mx-0"
 		>
 			{data && textFirstMagazine(data?.magazineContent, language)}
 		</section>

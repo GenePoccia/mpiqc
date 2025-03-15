@@ -2,16 +2,7 @@ import { imageFirstMagazine } from "../reusable/magazines";
 import {
 	IndustriesSectionData,
 	IndustrySpecificData,
-	SanityImage,
 } from "@/types/sanityTypes";
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: SanityImage) {
-	return builder.image(source);
-}
 
 const renderIndustryContent = (
 	industry: IndustrySpecificData,

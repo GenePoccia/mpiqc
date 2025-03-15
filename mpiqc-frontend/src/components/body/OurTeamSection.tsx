@@ -50,14 +50,17 @@ export default function OurTeam({
 	const imageUrl = data?.backgroundImage
 		? urlFor(data.backgroundImage).url()
 		: "";
+
+	const header = data?.header[language];
 	return (
 		<div
 			id="our-team"
-			className="h-screen mt-24 w-full flex items-center justify-center p-4 bg-background"
+			className="h-screen mt-24 w-full flex flex-col items-center bg-cover bg-center bg-no-repeat justify-center p-4 bg-background"
 			style={{
 				backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 			}}
 		>
+			<h1 className="mb-12">{header}</h1>
 			<div className="w-full mx-12 lg:mx-0 max-w-4xl rounded-md bg-[rgba(255,255,255,0.5)]">
 				<Carousel
 					setApi={setApi}
@@ -78,9 +81,9 @@ export default function OurTeam({
 					</CarouselContent>
 
 					{/* Arrow navigation (visible only on large screens) */}
-					<CustomCarouselPrevious className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselPrevious>
+					{/* <CustomCarouselPrevious className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselPrevious>
 
-					<CustomCarouselNext className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselNext>
+					<CustomCarouselNext className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 h-20 w-20 items-center justify-center bg-transparent border-0 hover:bg-transparent"></CustomCarouselNext> */}
 
 					{/* Dot indicators */}
 					<div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">

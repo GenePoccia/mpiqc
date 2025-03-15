@@ -32,7 +32,7 @@ export default function WelcomeSection({
 			}}
 		>
 			<Header />
-			<div className="mt-auto text-[64px] ml-4 md:ml-24 mb-8 md:mb-24 max-w-[1440px] w-[90%] px-4 rounded-lg text-left">
+			<div className="mt-auto text-[64px] ml-4 md:ml-18 mb-8 md:mb-24 max-w-[1440px] w-[90%] rounded-lg text-left">
 				<h1 className="text-4xl leading-18 w-[90%] lg:w-[30%] font-bold sm:text-3xl !text-white mb-4">
 					{headerText}
 				</h1>

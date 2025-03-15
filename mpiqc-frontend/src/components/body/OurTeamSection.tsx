@@ -6,8 +6,6 @@ import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
-	CustomCarouselNext,
-	CustomCarouselPrevious,
 	type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";

@@ -44,9 +44,9 @@ const Header = () => {
 		useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-	const changeLanguage = () => {
-		setLanguage(language === "en" ? "fr" : "en");
-	};
+	// const changeLanguage = () => {
+	// 	setLanguage(language === "en" ? "fr" : "en");
+	// };
 
 	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
 	const warrantyLogoURL = warrantyImage ? urlFor(warrantyImage).url() : "";

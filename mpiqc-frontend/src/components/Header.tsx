@@ -52,7 +52,7 @@ const Header = () => {
 	const warrantyLogoURL = warrantyImage ? urlFor(warrantyImage).url() : "";
 	return (
 		<>
-			<div className="bg-white text-black">
+			<div className="bg-white w-full text-black">
 				<div className="max-w-[1440px] mx-auto w-full p-2 flex justify-between items-center ">
 					<div className="flex flex-row items-center gap-x-4">
 						<img

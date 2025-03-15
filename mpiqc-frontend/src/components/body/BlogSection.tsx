@@ -71,7 +71,7 @@ export default function BlogSection({
 
 	return (
 		<section
-			id="blog"
+			id="news"
 			className="flex flex-col items-center my-24 text-center mx-auto"
 		>
 			<h2 className="mb-12">{header?.[language]}</h2>

@@ -15,7 +15,7 @@ export const imageFirstMagazine = (
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
 	return (
-		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0 mx-0 md:mx-12">
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0  mx-0 md:mx-12 lg:mx-24">
 			<div className="h-full">
 				{magazine?.image && (
 					<img
@@ -53,7 +53,7 @@ export const textFirstMagazine = (
 	const list = magazine?.bulletedList;
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 	return (
-		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12 mb-12 lg:mb-0 mx-0 md:mx-12">
+		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12 mb-12 lg:mb-0 mx-0 md:mx-12 lg:mx-24">
 			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
 				<h2>{magazine?.subHeader?.[language]}</h2>
 				<h1 className="my-4 max-w-sm font-medium">

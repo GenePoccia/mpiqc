@@ -26,15 +26,13 @@ export default function WelcomeSection({
 	return (
 		<section
 			id="home"
-			className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat
-			 flex flex-col items-end
-			"
+			className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
 			style={{
 				backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 			}}
 		>
 			<Header />
-			<div className=" mt-auto text-[64px] ml-4 md:ml-24 mb-8 md:mb-24 max-w-[1440px] p-4 rounded-lg text-left">
+			<div className="mt-auto text-[64px] ml-4 md:ml-24 mb-8 md:mb-24 max-w-[1440px] w-[90%] px-4 rounded-lg text-left">
 				<h1 className="text-4xl leading-18 w-[90%] lg:w-[30%] font-bold sm:text-3xl !text-white mb-4">
 					{headerText}
 				</h1>

@@ -20,7 +20,6 @@
 body {
   background-color: var(--background);
   color: var(--text-color); 
-  font-family: "Book Antiqua", Palatino, serif;
   width: 100%; /* Full width */
   min-height: 100vh;
   text-align: center;
@@ -37,18 +36,21 @@ h1 {
   font-size: var(--large-text);
   color: var(--text-color);
   line-height: 1.1;
+  font-family: "Book Antiqua", Palatino, serif;
 }
 
 h2 {
   font-size: var(--medium-text);
   color: var(--text-color);
   line-height: 1.1;
+  font-family: "Book Antiqua", Palatino, serif;
 }
 
 h3 {
   font-size: var(--small-text);
   color: var(--text-color);
   line-height: 1.1;
+  font-family: "Book Antiqua", Palatino, serif;
 }
 
 span {

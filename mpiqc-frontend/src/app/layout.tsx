@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import RootLayout from "./RootLayout"; // Import the new client layout
+import RootLayout from "./RootLayout";
 
 import "./globals.css";
 

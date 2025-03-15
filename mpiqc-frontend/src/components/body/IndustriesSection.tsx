@@ -30,9 +30,9 @@ const renderIndustryContent = (
 				className="w-[32px] h-[32px] max-w-full"
 			/>
 			<div className="flex flex-col gap-4 max-w-3xs md:max-w-2xs">
-				<h2 className="leading-[28.8px] font-semibold">
+				<div className="text-xl md:text-3xl font-semibold">
 					{industry?.header[language]}
-				</h2>
+				</div>
 				<span>{industry?.description[language]}</span>
 			</div>
 		</div>

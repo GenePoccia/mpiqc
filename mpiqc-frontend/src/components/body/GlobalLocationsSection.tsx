@@ -24,7 +24,7 @@ const renderLocations = (
 				<img
 					src="/images/globe.svg"
 					alt="globe"
-					className="max-w-[200px] w-full"
+					className="max-w-[150px] lg:max-w-[200px] w-full"
 				/>
 				<div className="text-left mt-4">
 					<h3 className="my-6 font-bold">{location.city?.[language]}</h3>

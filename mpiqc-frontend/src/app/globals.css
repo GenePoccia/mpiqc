@@ -7,48 +7,60 @@
 :root {  
   --background: white;
   --foreground: #171717;
+  --extra-large-text: 64px;
   --large-text: 48px;
   --medium-text: 32px;
   --small-text: 24px;
   --extra-small-text: 16px;
-  --text-color: black;
+  --text-color: rgba(30, 30, 30, 1);
+  --text-secondary: rgba(117, 117, 117, 1)
 }
 
 
 body {
   background-color: var(--background);
   color: var(--text-color); 
-  font-family: var(--font-geist-sans);
+  font-family: "Book Antiqua", Palatino, serif;
   width: 100%; /* Full width */
-    min-height: 100vh;
-    text-align: center;
+  min-height: 100vh;
+  text-align: center;
   letter-spacing: -2%;
-  line-height: 22.4px;
+  line-height: 1.4;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+
 h1 {
   font-size: var(--large-text);
-  line-height: 1;
+  color: var(--text-color);
+  line-height: 1.1;
 }
 
 h2 {
   font-size: var(--medium-text);
-  line-height: 1;
+  color: var(--text-color);
+  line-height: 1.1;
 }
 
 h3 {
   font-size: var(--small-text);
-  line-height: 1;
+  color: var(--text-color);
+  line-height: 1.1;
 }
 
 span {
-  font-size: var(--extra-small-text)
+  font-size: var(--extra-small-text);
+  color: var(--text-secondary);
+  font-weight: 200;
+  line-height: 1.4;
 }
 
 p {
-  font-size: var(--extra-small-text)
+  font-size: var(--extra-small-text);
+  color: var(--text-secondary);
+  font-weight: 200;
+  line-height: 1.4;
 }

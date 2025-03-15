@@ -26,7 +26,7 @@ export default function WelcomeSection({
 	return (
 		<section
 			id="home"
-			className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center"
+			className="relative w-full min-h-screen bg-cover bg-top bg-no-repeat flex flex-col items-center"
 			style={{
 				backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
 			}}

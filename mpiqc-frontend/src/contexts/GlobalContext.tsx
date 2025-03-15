@@ -132,8 +132,10 @@ export const Provider: React.FC<ProviderProps> = ({ children }) => {
 
 				setCategories(categoriesResult[0]?.navigationCategories || []);
 				setWarrantyCallout(categoriesResult[0]?.warrantyCallout || []);
+				// TODO: Remove these and references to them in sanity and codebase
 				setHeaderLogo(categoriesResult[0]?.logo || []);
 				setWarrantyImage(categoriesResult[0]?.warrantyImage || []);
+				// ----------------------
 				setWelcomeData(welcomePage[0]);
 				setWhoWeAreData(whoWeAre[0]);
 				setOurCapabilitiesData(ourCapabilities[0]);

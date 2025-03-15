@@ -3,7 +3,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
-import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
+import { CategoryInterface } from "@/types/sanityTypes";
 
 import { Menu, X } from "lucide-react"; // Import icons for the mobile menu
 

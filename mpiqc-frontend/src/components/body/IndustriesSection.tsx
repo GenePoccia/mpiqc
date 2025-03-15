@@ -17,22 +17,24 @@ const renderIndustryContent = (
 	industry: IndustrySpecificData,
 	language: "en" | "fr"
 ) => {
-	const imageUrl = industry?.image ? urlFor(industry.image).url() : "";
-
+	const header = industry?.header[language];
+	const smallHeaderIndustries = ["Medical & Healthcare", "Energy & Renewables"];
 	return (
 		<div
 			key={industry._key}
 			className="flex flex-row text-left gap-4"
 		>
-			<img
-				src={imageUrl}
-				alt={industry?.image?.alt}
-				className="w-[32px] h-[32px] max-w-full"
-			/>
 			<div className="flex flex-col gap-4 max-w-3xs md:max-w-2xs">
-				<div className="text-xl md:text-3xl font-semibold">
-					{industry?.header[language]}
-				</div>
+				{smallHeaderIndustries.includes(header) ? (
+					<div className="text-xl max-w-[200px] md:text-2xl font-semibold">
+						{header}
+					</div>
+				) : (
+					<div className="text-xl max-w-sm md:text-2xl font-semibold">
+						{header}
+					</div>
+				)}
+
 				<span>{industry?.description[language]}</span>
 			</div>
 		</div>

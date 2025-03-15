@@ -69,12 +69,14 @@ const Header = () => {
 						{categories.map((category, index) =>
 							renderCategory(category, language, index)
 						)}
-						<div
+
+						{/* HIDDEN FOR LAUNCH */}
+						{/* <div
 							onClick={changeLanguage}
 							className="cursor-pointer"
 						>
 							{language === "en" ? "FR" : "EN"}
-						</div>
+						</div> */}
 					</div>
 
 					{/* Mobile Menu Button */}
@@ -105,12 +107,13 @@ const Header = () => {
 								</div>
 							))}
 							{/* Language Toggle - Left Aligned */}
-							<div
+							{/* HIDDEN FOR LAUNCH */}
+							{/* <div
 								onClick={changeLanguage}
 								className="cursor-pointer text-left"
 							>
 								{language === "en" ? "FR" : "EN"}
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

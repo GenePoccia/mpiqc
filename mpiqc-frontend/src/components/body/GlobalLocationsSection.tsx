@@ -93,7 +93,7 @@ export default function GlobalLocations({
 						<p>{description}</p>
 					</div>
 
-					<div className="grid sm:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-12 gap-y-12 my-18 mx-auto">
+					<div className="grid sm:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-12 gap-y-12 my-18 mx-auto">
 						{globalLocations?.map((location, index) =>
 							renderLocations(location, language, index)
 						)}

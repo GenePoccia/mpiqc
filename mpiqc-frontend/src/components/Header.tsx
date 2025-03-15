@@ -40,8 +40,13 @@ const renderCategory = (
 };
 
 const Header = () => {
-	const { categories, headerLogo, language, warrantyImage, setLanguage } =
-		useGlobalContext();
+	const {
+		categories,
+		headerLogo,
+		language,
+		warrantyImage,
+		// setLanguage
+	} = useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	// const changeLanguage = () => {

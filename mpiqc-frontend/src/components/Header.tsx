@@ -7,14 +7,7 @@ import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
 
 import { Menu, X } from "lucide-react"; // Import icons for the mobile menu
 
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: SanityImage) {
-	return builder.image(source);
-}
+import Image from "next/image";
 
 const renderCategory = (
 	category: CategoryInterface,
@@ -53,20 +46,22 @@ const Header = () => {
 	// 	setLanguage(language === "en" ? "fr" : "en");
 	// };
 
-	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
-	const warrantyLogoURL = warrantyImage ? urlFor(warrantyImage).url() : "";
 	return (
 		<>
 			<div className="bg-white w-full text-black">
 				<div className="max-w-[1440px] mx-auto w-full p-2 flex justify-between items-center ">
-					<div className="flex flex-row items-center gap-x-4">
-						<img
-							src={logoURL}
-							alt={headerLogo?.alt}
+					<div className="flex flex-row ml-8 items-center gap-x-4">
+						<Image
+							src="/images/mpiqc.svg"
+							alt="MPIQC Logo"
+							width={150}
+							height={60}
 						/>
-						<img
-							src={warrantyLogoURL}
-							alt={warrantyImage?.alt}
+						<Image
+							src="/images/warranty.svg"
+							alt="Warranty Logo"
+							width={80}
+							height={80}
 						/>
 					</div>
 					{/* Desktop Nav (Hidden on small screens) */}

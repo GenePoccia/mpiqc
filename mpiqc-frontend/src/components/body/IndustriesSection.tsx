@@ -1,4 +1,4 @@
-import { imageFirstMagazine } from "../reusable/magazines";
+import { PortableImageFirstMagazine } from "../reusable/magazines";
 import {
 	IndustriesSectionData,
 	IndustrySpecificData,
@@ -47,7 +47,7 @@ export default function IndustriesSection({
 				id="industries"
 				className=" flex items-center mt-24 justify-center  mx-12 md:mx-0 lg:mx-0"
 			>
-				{industry && imageFirstMagazine(industry, language)}
+				{industry && PortableImageFirstMagazine(industry, language)}
 			</section>
 			<div className="w-[95%] max-w-[1440px] mt-24 mx-auto flex justify-center items-center ">
 				<div className="grid mb-24 md:grid-cols-2 lg:mb-0 lg:grid-cols-3 gap-16">

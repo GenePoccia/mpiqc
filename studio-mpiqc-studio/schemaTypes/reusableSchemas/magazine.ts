@@ -20,13 +20,11 @@ export const magazine = defineType({
           name: 'en',
           title: 'English',
           type: 'string',
-          validation: (rule) => rule.required(),
         }),
         defineField({
           name: 'fr',
           title: 'French',
           type: 'string',
-          validation: (rule) => rule.required(),
         }),
       ],
     }),
@@ -39,13 +37,11 @@ export const magazine = defineType({
           name: 'en',
           title: 'English',
           type: 'string',
-          validation: (rule) => rule.required(),
         }),
         defineField({
           name: 'fr',
           title: 'French',
           type: 'string',
-          validation: (rule) => rule.required(),
         }),
       ],
     }),
@@ -58,13 +54,30 @@ export const magazine = defineType({
           name: 'en',
           title: 'English',
           type: 'text',
-          validation: (rule) => rule.required(),
         }),
         defineField({
           name: 'fr',
           title: 'French',
           type: 'text',
-          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: 'paragraphTwo',
+      title: 'Paragraph',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en',
+          title: 'English',
+          type: 'array',
+          of: [{type: 'block'}], // Portable Text for rich content
+        }),
+        defineField({
+          name: 'fr',
+          title: 'French',
+          type: 'array',
+          of: [{type: 'block'}], // Portable Text for rich content
         }),
       ],
     }),

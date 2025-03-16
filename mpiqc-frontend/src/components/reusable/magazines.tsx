@@ -1,4 +1,7 @@
 import { MagazineContent, SanityImage } from "@/types/sanityTypes";
+import { PortableText } from "@portabletext/react";
+
+import { PortableTextComponents } from "./PortableTextComponents"; // ✅ Import component
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 
@@ -28,7 +31,7 @@ export const imageFirstMagazine = (
 
 			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
 				<h2>{magazine?.subHeader?.[language]}</h2>
-				<h1 className="my-4 max-w-sm font-medium">
+				<h1 className="mb-4 max-w-sm font-medium">
 					{magazine?.header?.[language]}
 				</h1>
 				<p className="mb-8 max-w-md text-muted-foreground">
@@ -56,7 +59,7 @@ export const textFirstMagazine = (
 		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12 mb-12 lg:mb-0 mx-0 md:mx-12 lg:mx-24">
 			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
 				<h2>{magazine?.subHeader?.[language]}</h2>
-				<h1 className="my-4 max-w-sm font-medium">
+				<h1 className="mb-4 max-w-sm font-medium">
 					{magazine?.header?.[language]}
 				</h1>
 				<p className="mb-8 max-w-md text-muted-foreground">
@@ -77,6 +80,95 @@ export const textFirstMagazine = (
 						alt={magazine?.image?.alt}
 						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
 					/>
+				)}
+			</div>
+		</div>
+	);
+};
+
+export const PortableTextFirstMagazine = (
+	magazine: MagazineContent,
+	language: "en" | "fr"
+) => {
+	const list = magazine?.bulletedList;
+	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
+
+	return (
+		<div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-stretch h-full gap-12 mb-12 lg:mb-0 mx-0 md:mx-12 lg:mx-24">
+			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
+				<h1 className="mb-4 max-w-sm font-medium">
+					{magazine?.header?.[language]}
+				</h1>
+				{/* ✅ Rendering Portable Text instead of a plain <p> */}
+				<div className="mb-8 max-w-md text-muted-foreground">
+					{magazine?.paragraphTwo?.[language] && (
+						<PortableText
+							value={magazine.paragraphTwo[language]}
+							components={PortableTextComponents}
+						/>
+					)}
+				</div>
+				{list && (
+					<ul className="list-disc">
+						{list.map((ele) => (
+							<li key={ele._key}>{ele[language]}</li>
+						))}
+					</ul>
+				)}
+			</div>
+			<div className="h-full">
+				{magazine?.image && (
+					<img
+						src={imageUrl}
+						alt={magazine?.image?.alt}
+						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
+					/>
+				)}
+			</div>
+		</div>
+	);
+};
+
+export const PortableImageFirstMagazine = (
+	magazine: MagazineContent,
+	language: "en" | "fr"
+) => {
+	const list = magazine?.bulletedList;
+	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
+
+	console.log(magazine);
+	return (
+		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0  mx-0 md:mx-12 lg:mx-24">
+			<div className="h-full">
+				{magazine?.image && (
+					<img
+						src={imageUrl}
+						alt={magazine?.image?.alt}
+						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
+					/>
+				)}
+			</div>
+
+			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">
+				<h2>{magazine?.subHeader?.[language]}</h2>
+				<h1 className="mb-4 max-w-sm font-medium">
+					{magazine?.header?.[language]}
+				</h1>
+				{/* ✅ Rendering Portable Text instead of a plain <p> */}
+				<div className="mb-8 max-w-md text-muted-foreground">
+					{magazine?.paragraphTwo?.[language] && (
+						<PortableText
+							value={magazine.paragraphTwo[language]}
+							components={PortableTextComponents}
+						/>
+					)}
+				</div>
+				{list && (
+					<ul className="list-disc">
+						{list.map((ele) => (
+							<li key={ele._key}>{ele[language]}</li>
+						))}
+					</ul>
 				)}
 			</div>
 		</div>

@@ -4,6 +4,8 @@ import {
 	Location,
 	SanityImage,
 } from "@/types/sanityTypes";
+import Image from "next/image";
+
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 
@@ -18,13 +20,16 @@ const renderLocations = (
 	language: "en" | "fr",
 	index: number
 ) => {
+	const imageUrl = location?.locationImage
+		? urlFor(location.locationImage).url()
+		: "";
+
 	return (
 		<div key={`${location?._key}_` + index}>
 			<div className="flex flex-col items-center justify-center h-full">
 				<img
-					src="/images/globe.svg"
-					alt="globe"
-					className="max-w-[150px] lg:max-w-[200px] w-full"
+					src={imageUrl}
+					alt={`${location.city}`}
 				/>
 				<div className="text-left mt-4">
 					<h3 className="my-6 font-bold">{location.city?.[language]}</h3>

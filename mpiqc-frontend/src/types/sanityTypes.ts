@@ -61,6 +61,7 @@ export interface Service {
 }
 
 export interface Location {
+	locationImage: SanityImage;
 	address: LocalizedText;
 	city: LocalizedText;
 	email: string;

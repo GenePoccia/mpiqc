@@ -21,7 +21,7 @@ const renderCategory = (
 			key={`category-${index}`}
 		>
 			<Link
-				href={`#${category?.route}`}
+				href={`/#${category?.route}`}
 				scroll={true}
 				className={`${category.isSpecialColor ? "text-[rgba(212,141,50,1)]" : ""}`}
 				onClick={() => setMobileMenuOpen?.(false)}

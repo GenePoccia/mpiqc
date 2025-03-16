@@ -103,6 +103,7 @@ export interface DropdownItems {
 // Section Interfaces
 export interface WelcomeSectionData {
 	header: LocalizedText;
+	headerTwo: LocalizedPortableText;
 	paragraph: LocalizedText;
 	title: string;
 	backgroundImage: SanityImage;

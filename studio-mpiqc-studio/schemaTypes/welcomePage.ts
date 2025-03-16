@@ -45,6 +45,25 @@ export const welcomePage = defineType({
       ],
     }),
     defineField({
+      name: 'headerTwo',
+      title: 'Paragraph',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'en',
+          title: 'English',
+          type: 'array',
+          of: [{type: 'block'}], // Portable Text for rich content
+        }),
+        defineField({
+          name: 'fr',
+          title: 'French',
+          type: 'array',
+          of: [{type: 'block'}], // Portable Text for rich content
+        }),
+      ],
+    }),
+    defineField({
       name: 'paragraph',
       title: 'Paragraph',
       type: 'object',

@@ -24,3 +24,13 @@ export const PortableTextComponents = {
 		),
 	},
 };
+
+export const HeaderPortableText = {
+	block: {
+		normal: ({ children }: any) => (
+			<h1 className="text-[64px] w-[90%] font-bold sm:text-3xl !text-white mb-4 !leading-[120%]">
+				{children}
+			</h1>
+		),
+	},
+};

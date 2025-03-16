@@ -2,7 +2,6 @@ import React from "react";
 import {
 	PortableTextReactComponents,
 	PortableTextComponentProps,
-	PortableTextMarkComponentProps,
 	PortableTextBlock,
 } from "@portabletext/react";
 

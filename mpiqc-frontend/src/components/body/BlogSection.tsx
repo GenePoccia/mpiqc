@@ -37,22 +37,24 @@ const renderPartialPost = (
 	return (
 		<div
 			key={`blog_post_` + index}
-			className="flex flex-col"
+			className="flex flex-col gap-4"
 		>
 			<img
 				src={imageUrl}
 				alt={postData?.coverImage?.alt}
-				className="max-w-[288px] max-h-[96px]"
+				className="max-w-[244px] max-h-[160px] rounded-xl"
 			/>
-			<span>{formatDate(postData?.date)}</span>
-			<span>{postData?.postTitle?.[language]}</span>
-			<span>{postData?.excerpt?.[language]}</span>
+			<span className="">{formatDate(postData?.date)}</span>
+			<h3 className="">{postData?.postTitle?.[language]}</h3>
+			<p className="w-[85%]">{postData?.excerpt?.[language]}</p>
 			<Link
 				href={`/blog/${postData?.slug?.current}?language=${language}`}
 				key={`blog_post_` + index}
 				passHref
 			>
-				<span>{postData?.readMore?.[language]}</span>
+				<span className="!text-[rgba(128,19,35,1)] !font-semibold underline">
+					{postData?.readMore?.[language]}
+				</span>
 			</Link>
 		</div>
 	);

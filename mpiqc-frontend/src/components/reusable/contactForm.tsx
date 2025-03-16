@@ -58,14 +58,16 @@ export default function ContactForm({
 
 	return (
 		<div className="mx-auto flex w-full max-w-screen-md items-center flex-col justify-between gap-16 p-4 sm:p-6 md:p-8 lg:p-12 text-white">
-			<div className="text-center">
-				<h3 className="text-lg md:text-xl">{data?.subHeader?.[language]}</h3>
-				<h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+			<div className="text-center ">
+				<h3 className="text-lg md:text-xl !text-white">
+					{data?.subHeader?.[language]}
+				</h3>
+				<h1 className="text-2xl md:text-3xl lg:text-4xl font-bold !text-white">
 					{data?.header?.[language]}
 				</h1>
 			</div>
 
-			<p className="w-full max-w-md text-sm md:text-base">
+			<p className="w-full max-w-md text-sm md:text-base !text-white">
 				{data?.paragraph?.[language]}
 			</p>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { FooterData, SanityImage, SocialMedia } from "@/types/sanityTypes";
+import Image from "next/image";
 
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
@@ -37,17 +38,16 @@ const Footer = ({
 	data: FooterData | null;
 	language: "en" | "fr";
 }) => {
-	const imageUrl = data?.logo ? urlFor(data?.logo).url() : "";
-
 	return (
 		<>
 			<section className="w-full bg-white py-8 px-4 md:px-8">
 				<div className="container mx-auto mb-10 flex flex-col md:flex-row items-center justify-between">
 					<div className="mb-6 md:mb-0">
-						<img
-							src={imageUrl}
-							alt={data?.logo?.alt}
-							className="max-w-[288px] max-h-[96px]"
+						<Image
+							src="/images/mpiqc.svg"
+							alt="MPIQC Logo"
+							width={150}
+							height={60}
 						/>
 					</div>
 

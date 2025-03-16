@@ -40,6 +40,11 @@ export interface BlogPostData extends PartialBlogPostData {
 	content: PortableTextBlock[];
 }
 
+export interface LocalizedPortableText {
+	en: PortableTextBlock[]; // Array of Portable Text blocks
+	fr: PortableTextBlock[];
+}
+
 // content structure
 export interface MagazineContent {
 	header: LocalizedText;
@@ -47,6 +52,7 @@ export interface MagazineContent {
 	subHeader: LocalizedText;
 	bulletedList?: LocalizedText[];
 	image?: SanityImage;
+	paragraphTwo?: LocalizedPortableText;
 	_id: string;
 }
 export interface Service {
@@ -55,6 +61,7 @@ export interface Service {
 }
 
 export interface Location {
+	locationImage: SanityImage;
 	address: LocalizedText;
 	city: LocalizedText;
 	email: string;
@@ -96,6 +103,7 @@ export interface DropdownItems {
 // Section Interfaces
 export interface WelcomeSectionData {
 	header: LocalizedText;
+	headerTwo: LocalizedPortableText;
 	paragraph: LocalizedText;
 	title: string;
 	backgroundImage: SanityImage;

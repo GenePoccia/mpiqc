@@ -3,18 +3,11 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Link from "next/link";
 import { useGlobalContext } from "../contexts/GlobalContext";
-import { CategoryInterface, SanityImage } from "@/types/sanityTypes";
+import { CategoryInterface } from "@/types/sanityTypes";
 
 import { Menu, X } from "lucide-react"; // Import icons for the mobile menu
 
-import imageUrlBuilder from "@sanity/image-url";
-import { client } from "@/sanity/client";
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: SanityImage) {
-	return builder.image(source);
-}
+import Image from "next/image";
 
 const renderCategory = (
 	category: CategoryInterface,
@@ -40,28 +33,33 @@ const renderCategory = (
 };
 
 const Header = () => {
-	const { categories, headerLogo, language, warrantyImage, setLanguage } =
-		useGlobalContext();
+	const {
+		categories,
+		language,
+		// setLanguage
+	} = useGlobalContext();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-	const changeLanguage = () => {
-		setLanguage(language === "en" ? "fr" : "en");
-	};
+	// const changeLanguage = () => {
+	// 	setLanguage(language === "en" ? "fr" : "en");
+	// };
 
-	const logoURL = headerLogo ? urlFor(headerLogo).url() : "";
-	const warrantyLogoURL = warrantyImage ? urlFor(warrantyImage).url() : "";
 	return (
 		<>
-			<div className="bg-white text-black">
+			<div className="bg-white w-full text-black">
 				<div className="max-w-[1440px] mx-auto w-full p-2 flex justify-between items-center ">
-					<div className="flex flex-row items-center gap-x-4">
-						<img
-							src={logoURL}
-							alt={headerLogo?.alt}
+					<div className="flex flex-row ml-8 items-center gap-x-4">
+						<Image
+							src="/images/mpiqc.svg"
+							alt="MPIQC Logo"
+							width={150}
+							height={60}
 						/>
-						<img
-							src={warrantyLogoURL}
-							alt={warrantyImage?.alt}
+						<Image
+							src="/images/warranty.svg"
+							alt="Warranty Logo"
+							width={80}
+							height={80}
 						/>
 					</div>
 					{/* Desktop Nav (Hidden on small screens) */}
@@ -69,12 +67,14 @@ const Header = () => {
 						{categories.map((category, index) =>
 							renderCategory(category, language, index)
 						)}
-						<div
+
+						{/* HIDDEN FOR LAUNCH */}
+						{/* <div
 							onClick={changeLanguage}
 							className="cursor-pointer"
 						>
 							{language === "en" ? "FR" : "EN"}
-						</div>
+						</div> */}
 					</div>
 
 					{/* Mobile Menu Button */}
@@ -105,12 +105,13 @@ const Header = () => {
 								</div>
 							))}
 							{/* Language Toggle - Left Aligned */}
-							<div
+							{/* HIDDEN FOR LAUNCH */}
+							{/* <div
 								onClick={changeLanguage}
 								className="cursor-pointer text-left"
 							>
 								{language === "en" ? "FR" : "EN"}
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

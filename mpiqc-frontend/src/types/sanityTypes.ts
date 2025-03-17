@@ -37,7 +37,7 @@ export interface SocialMedia {
 }
 
 export interface BlogPostData extends PartialBlogPostData {
-	content: PortableTextBlock[];
+	content: LocalizedPortableText;
 }
 
 export interface LocalizedPortableText {

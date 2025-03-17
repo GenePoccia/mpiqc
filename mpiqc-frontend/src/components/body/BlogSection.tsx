@@ -37,22 +37,24 @@ const renderPartialPost = (
 	return (
 		<div
 			key={`blog_post_` + index}
-			className="flex flex-col"
+			className="flex flex-col gap-4"
 		>
 			<img
 				src={imageUrl}
 				alt={postData?.coverImage?.alt}
-				className="max-w-[288px] max-h-[96px]"
+				className="max-w-[244px] max-h-[160px] rounded-xl"
 			/>
-			<span>{formatDate(postData?.date)}</span>
-			<span>{postData?.postTitle?.[language]}</span>
-			<span>{postData?.excerpt?.[language]}</span>
+			<span className="">{formatDate(postData?.date)}</span>
+			<h3 className="">{postData?.postTitle?.[language]}</h3>
+			<p className="w-[85%]">{postData?.excerpt?.[language]}</p>
 			<Link
 				href={`/blog/${postData?.slug?.current}?language=${language}`}
 				key={`blog_post_` + index}
 				passHref
 			>
-				<span>{postData?.readMore?.[language]}</span>
+				<span className="!text-[rgba(128,19,35,1)] !font-semibold underline">
+					{postData?.readMore?.[language]}
+				</span>
 			</Link>
 		</div>
 	);
@@ -75,7 +77,7 @@ export default function BlogSection({
 			className="flex flex-col items-center my-24 text-center mx-auto"
 		>
 			<h2 className="mb-12">{header?.[language]}</h2>
-			<div className="md:flex md:flex-row text-left w-sm gap-8">
+			<div className="md:flex md:flex-row text-left w-lg gap-8">
 				{partialBlogPostData?.map((post, index) => {
 					return renderPartialPost(post, index, language);
 				})}

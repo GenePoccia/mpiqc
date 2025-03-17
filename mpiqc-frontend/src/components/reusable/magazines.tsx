@@ -139,14 +139,12 @@ export const PortableImageFirstMagazine = (
 	console.log(magazine);
 	return (
 		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0  mx-0 md:mx-12 lg:mx-24">
-			<div className="h-full">
-				{magazine?.image && (
-					<img
-						src={imageUrl}
-						alt={magazine?.image?.alt}
-						className="w-full h-full max-w-[500px] h-auto max-h-[350px] rounded-3xl object-cover"
-					/>
-				)}
+			<div className="flex justify-center">
+				<img
+					src={imageUrl}
+					alt={magazine?.image?.alt}
+					className="w-[500px] max-h-[350px] rounded-3xl object-cover"
+				/>
 			</div>
 
 			<div className="flex flex-col text-left lg:items-start lg:text-left h-full">

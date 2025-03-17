@@ -136,7 +136,6 @@ export const PortableImageFirstMagazine = (
 	const list = magazine?.bulletedList;
 	const imageUrl = magazine?.image ? urlFor(magazine?.image).url() : "";
 
-	console.log(magazine);
 	return (
 		<div className="grid lg:grid-cols-2 items-stretch h-full gap-16 mb-12 lg:mt-0 lg:mb-0  mx-0 md:mx-12 lg:mx-24">
 			<div className="flex justify-center">

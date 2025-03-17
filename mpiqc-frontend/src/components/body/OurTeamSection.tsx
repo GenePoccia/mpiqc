@@ -59,7 +59,7 @@ export default function OurTeam({
 			}}
 		>
 			<h1 className="mb-12">{header}</h1>
-			<div className="w-full mx-12 lg:mx-0 max-w-4xl rounded-md bg-[rgba(255,255,255,0.5)]">
+			<div className="slider w-full mx-12 lg:mx-0 max-w-4xl rounded-md bg-[rgba(255,255,255,0.5)]">
 				<Carousel
 					setApi={setApi}
 					className="w-full relative"

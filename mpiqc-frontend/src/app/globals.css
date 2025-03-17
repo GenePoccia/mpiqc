@@ -25,6 +25,11 @@ body {
   text-align: center;
   letter-spacing: -2%;
   line-height: 1.4;
+  text-wrap: pretty;
+}
+
+section {
+  scroll-margin-top: 64px;
 }
 
 html {

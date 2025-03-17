@@ -77,7 +77,7 @@ export default function BlogSection({
 			className="flex flex-col items-center my-24 text-center mx-auto"
 		>
 			<h2 className="mb-12">{header?.[language]}</h2>
-			<div className="md:flex md:flex-row text-left w-sm gap-8">
+			<div className="md:flex md:flex-row text-left w-lg gap-8">
 				{partialBlogPostData?.map((post, index) => {
 					return renderPartialPost(post, index, language);
 				})}

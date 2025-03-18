@@ -61,21 +61,21 @@ h3 {
 span {
   font-size: var(--extra-small-text);
   color: var(--text-secondary);
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.4;
 }
 
 p {
   font-size: var(--extra-small-text);
   color: var(--text-secondary);
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.4;
 }
 
 li {
   font-size: var(--extra-small-text);
   color: var(--text-secondary);
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.4;
 }
 

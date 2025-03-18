@@ -3,18 +3,30 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
 	try {
-		const { firstname, lastname, email, message } = await req.json();
+		const body = await req.json();
+		if (!body.firstname || !body.lastname || !body.email || !body.message) {
+			throw new Error("Missing required fields");
+		}
+
+		const { firstname, lastname, email, message } = body;
 
 		// Set up Nodemailer transport
 		const transporter = nodemailer.createTransport({
-			host: "smtp-relay.brevo.com",
-			port: 587, // Use 465 for SSL, 2525 as an alternative
-			secure: false, // Set to true if using port 465
+			host: process.env.NEXT_PUBLIC_EMAIL_HOST,
+			port: 587,
+			secure: false,
+			auth: {
+				user: process.env.NEXT_PUBLIC_EMAIL_AUTH,
+				pass: process.env.NEXT_PUBLIC_EMAIL_PASS,
+			},
+			tls: {
+				rejectUnauthorized: false,
+			},
 		});
 
 		// Email options
 		const mailOptions = {
-			from: process.env.NEXT_PUBLIC_EMAIL_USER,
+			from: process.env.NEXT_PUBLIC_EMAIL_FROM_EMAIL,
 			to: process.env.NEXT_PUBLIC_EMAIL_USER,
 			subject: "New Contact Form Submission",
 			text: `Name: ${firstname} ${lastname}\nEmail: ${email}\nMessage: ${message}`,
@@ -28,10 +40,19 @@ export async function POST(req: NextRequest) {
 			{ status: 200 }
 		);
 	} catch (error) {
-		console.error("Error sending email:", error);
-		return NextResponse.json(
-			{ error: "Failed to send email" },
-			{ status: 500 }
-		);
+		if (error instanceof Error) {
+			console.error("Error sending email:", error.message);
+			console.error(error);
+			return NextResponse.json(
+				{ error: `Failed to send email: ${error.message}` },
+				{ status: 500 }
+			);
+		} else {
+			console.error("Unexpected error:", error);
+			return NextResponse.json(
+				{ error: "Failed to send email due to an unknown error" },
+				{ status: 500 }
+			);
+		}
 	}
 }

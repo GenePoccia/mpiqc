@@ -6,6 +6,13 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactUsSectionData } from "@/types/sanityTypes";
 
+const DEFAULT_FORM_VALUES = {
+	firstname: "",
+	lastname: "",
+	email: "",
+	message: "",
+	company: "",
+};
 export default function ContactForm({
 	data,
 	language,
@@ -13,12 +20,7 @@ export default function ContactForm({
 	data: ContactUsSectionData | null;
 	language: "en" | "fr";
 }) {
-	const [formData, setFormData] = useState({
-		firstname: "",
-		lastname: "",
-		email: "",
-		message: "",
-	});
+	const [formData, setFormData] = useState(DEFAULT_FORM_VALUES);
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
 	const [error, setError] = useState("");
@@ -44,7 +46,7 @@ export default function ContactForm({
 
 			if (response.ok) {
 				setSuccess(true);
-				setFormData({ firstname: "", lastname: "", email: "", message: "" });
+				setFormData(DEFAULT_FORM_VALUES);
 			} else {
 				setError("Failed to send message.");
 			}
@@ -104,6 +106,17 @@ export default function ContactForm({
 						id="email"
 						placeholder="Email"
 						value={formData.email}
+						onChange={handleChange}
+						required
+					/>
+				</div>
+				<div className="grid w-full items-center gap-1.5">
+					<Label htmlFor="email">Company</Label>
+					<Input
+						type="text"
+						id="company"
+						placeholder="Company"
+						value={formData.company}
 						onChange={handleChange}
 						required
 					/>

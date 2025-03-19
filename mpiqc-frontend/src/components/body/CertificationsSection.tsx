@@ -36,11 +36,13 @@ export default function Certifications({
 }) {
 	const header = data?.header?.[language];
 	const description = data?.description?.[language];
-
 	const certifications = data?.certifications;
 
-	// Calculate if we need to center the last item for medium and large screens
-	const hasOddItems = certifications && certifications.length % 2 === 1;
+	if (!certifications) return null;
+
+	// Check if the last row would have a single item (3x + 1 items)
+	const hasLoneItemLg = certifications.length % 3 === 1;
+	const hasLoneItemMd = certifications.length % 2 === 1;
 
 	return (
 		<section
@@ -52,15 +54,16 @@ export default function Certifications({
 				<p className="mx-auto w-s lg:w-xl">{description}</p>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-8 md:gap-16 lg:gap-24 mt-12">
-				{certifications?.map((certification, index) => {
-					// Apply special class to the last item if we have an odd count, but only on md screens
+				{certifications.map((certification, index) => {
 					const isLastItem = index === certifications.length - 1;
-					const centerLastItem = hasOddItems && isLastItem;
+					const centerLastItem = isLastItem && (hasLoneItemLg || hasLoneItemMd);
 
 					return (
 						<div
 							key={index}
-							className={`${centerLastItem ? "md:col-span-2 lg:col-span-1" : ""}`}
+							className={`
+								${centerLastItem ? "md:col-span-2 lg:col-start-2 lg:col-span-1" : ""}
+							`}
 						>
 							{renderCertification(certification, index)}
 						</div>

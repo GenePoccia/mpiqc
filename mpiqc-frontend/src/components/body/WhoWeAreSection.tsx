@@ -1,6 +1,6 @@
 import "../../app/globals.css";
 import { WhoWeAreSectionData } from "@/types/sanityTypes";
-import { imageFirstMagazine } from "../reusable/magazines";
+import { PortableImageFirstMagazine } from "../reusable/magazines";
 
 export default function WhoAreWe({
 	data,
@@ -16,7 +16,7 @@ export default function WhoAreWe({
 			id="who-we-are"
 			className="flex items-center mt-24 lg:nt-0 justify-center mx-12 md:mx-0 lg:mx-0"
 		>
-			{magazineContent && imageFirstMagazine(magazineContent, language)}
+			{magazineContent && PortableImageFirstMagazine(magazineContent, language)}
 		</section>
 	);
 }

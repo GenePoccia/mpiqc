@@ -4,11 +4,17 @@ import nodemailer from "nodemailer";
 export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json();
-		if (!body.firstname || !body.lastname || !body.email || !body.message) {
+		if (
+			!body.firstname ||
+			!body.lastname ||
+			!body.email ||
+			!body.message ||
+			!body.company
+		) {
 			throw new Error("Missing required fields");
 		}
 
-		const { firstname, lastname, email, message } = body;
+		const { firstname, lastname, email, message, company } = body;
 
 		// Set up Nodemailer transport
 		const transporter = nodemailer.createTransport({
@@ -29,7 +35,7 @@ export async function POST(req: NextRequest) {
 			from: process.env.NEXT_PUBLIC_EMAIL_FROM_EMAIL,
 			to: process.env.NEXT_PUBLIC_EMAIL_USER,
 			subject: "New Contact Form Submission",
-			text: `Name: ${firstname} ${lastname}\nEmail: ${email}\nMessage: ${message}`,
+			text: `Name: ${firstname} ${lastname}\nEmail: ${email} \nCompany Name: ${company} \nMessage: ${message}`,
 		};
 
 		// Send email

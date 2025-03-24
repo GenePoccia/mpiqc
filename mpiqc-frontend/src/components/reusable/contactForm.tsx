@@ -13,6 +13,7 @@ const DEFAULT_FORM_VALUES = {
 	message: "",
 	company: "",
 };
+
 export default function ContactForm({
 	data,
 	language,
@@ -111,7 +112,7 @@ export default function ContactForm({
 					/>
 				</div>
 				<div className="grid w-full items-center gap-1.5">
-					<Label htmlFor="email">Company</Label>
+					<Label htmlFor="company">Company</Label>
 					<Input
 						type="text"
 						id="company"

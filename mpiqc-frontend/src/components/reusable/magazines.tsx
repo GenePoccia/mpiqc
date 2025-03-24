@@ -1,7 +1,7 @@
 import { MagazineContent, SanityImage } from "@/types/sanityTypes";
 import { PortableText } from "@portabletext/react";
 
-import { PortableTextComponents } from "./PortableTextComponents"; // ✅ Import component
+import { PortableTextComponents } from "./PortableTextComponents";
 import imageUrlBuilder from "@sanity/image-url";
 import { client } from "@/sanity/client";
 
@@ -99,7 +99,7 @@ export const PortableTextFirstMagazine = (
 				<h1 className="mb-4 max-w-sm font-medium">
 					{magazine?.header?.[language]}
 				</h1>
-				{/* ✅ Rendering Portable Text instead of a plain <p> */}
+
 				<div className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraphTwo?.[language] && (
 						<PortableText
@@ -151,7 +151,7 @@ export const PortableImageFirstMagazine = (
 				<h1 className="mb-4 max-w-sm font-medium">
 					{magazine?.header?.[language]}
 				</h1>
-				{/* ✅ Rendering Portable Text instead of a plain <p> */}
+
 				<div className="mb-8 max-w-md text-muted-foreground">
 					{magazine?.paragraphTwo?.[language] && (
 						<PortableText

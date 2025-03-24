@@ -52,9 +52,9 @@ export default async function PostPage({
 	const date = blogPost?.date;
 	const title = blogPost?.postTitle;
 	return (
-		<>
+		<section className="flex flex-col items-center text-center">
 			<Header />
-			<section className="max-w-[1440px] mx-24 flex flex-col items-center text-center">
+			<div className="max-w-[1440px] mx-24 flex flex-col">
 				{blogPost.coverImage && (
 					<img
 						src={urlFor(blogPost.coverImage).url()}
@@ -79,8 +79,8 @@ export default async function PostPage({
 				</div>
 
 				<BlogPageContactUs />
-			</section>
+			</div>
 			<BlogPageFooter />
-		</>
+		</section>
 	);
 }
